@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package colibri;
+option java_package = "io.gbdevw.colibri.domain.utils";
+
+enum Currency {
+    EUR=0;
+    USD=1;
+    BTC=2;
+    ETH=3;
+}
+
+enum Side {
+    BUY=0;
+    SELL=1;
+}

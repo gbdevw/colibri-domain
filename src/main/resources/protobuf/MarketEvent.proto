@@ -1,0 +1,51 @@
+/* Schema declaring messages that contains market event data  */
+syntax = "proto3";
+
+// Import utils (currency codes, ...)
+import "Utils.proto";
+
+// Package
+package colibri;
+option java_package = "io.gbdevw.colibri.domain.marketevent";
+
+/* Message that contain data of a market tick.
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z.
+ * id : coinbase id for the event
+ * unit : Unit currency (Ex : BTC, ETH)
+ * quote : Quote currency (Ex : EUR, USD)
+ * lastTradePrice : Price in quote currency for one unit of unit currency from the last trade
+ * lastTradeSize : Number of unit currency exchanged during last trade
+ * lastTradeSide : Side of the last trade
+ * bestBid : Best offered price in quote currency for one unit of unit currency
+ * bestAsk : Best asked price in quote currency for one unit of unit currency
+ */
+message Ticker {
+    uint64 timestamp=1;
+    uint64 id=2;
+    Currency unit=3;
+    Currency quote=4;
+    double lastTradePrice=5;
+    double lastTradeSize=6;
+    Side lastTradeSide=7;
+    double bestBid=8;
+    double bestAsk=9;
+}
+
+/* Message that contains the data of a trade
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z.
+ * id : coinbase id for the event
+ * unit : Unit currency (Ex : BTC, ETH)
+ * quote : Quote currency (Ex : EUR, USD)
+ * price : Price in quote currency for one unit of unit currency
+ * size : Number of unit currency exchanged during last trade
+ * side : Side of the trade
+ */
+message Match {
+    uint64 timestamp=1;
+    uint64 id=2;
+    Currency unit=3;
+    Currency quote=4;
+    double price=5;
+    double size=6;
+    Side side=7;
+}
