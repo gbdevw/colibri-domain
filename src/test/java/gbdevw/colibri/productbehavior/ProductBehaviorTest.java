@@ -1,4 +1,4 @@
-package io.gbdevw.colibri.productbehavior;
+package gbdevw.colibri.productbehavior;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -9,8 +9,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.gbdevw.colibri.domain.productbehavior.ProductBehavior.OHLCV;
-import io.gbdevw.colibri.domain.utils.Utils.Currency;
+import gbdevw.colibri.domain.productbehavior.ProductBehavior.OHLCV;
+import gbdevw.colibri.domain.utils.Utils.Currency;
 
 public class ProductBehaviorTest {
 

@@ -5,7 +5,7 @@ syntax = "proto3";
 import "Utils.proto";
 
 package colibri;
-option java_package = "io.gbdevw.colibri.domain.technicalindicators";
+option java_package = "gbdevw.colibri.domain.technicalindicators";
 
 /* Moving Average Convergence-Divergence (ex : Slow EMA : 26, Fast EMA : 10, Signal : 9)
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced

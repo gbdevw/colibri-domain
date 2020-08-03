@@ -1,4 +1,4 @@
-package io.gbdevw.colibri.marketevent;
+package gbdevw.colibri.marketevent;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -9,10 +9,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.gbdevw.colibri.domain.marketevent.MarketEvent.Match;
-import io.gbdevw.colibri.domain.marketevent.MarketEvent.Ticker;
-import io.gbdevw.colibri.domain.utils.Utils.Currency;
-import io.gbdevw.colibri.domain.utils.Utils.Side;
+import gbdevw.colibri.domain.marketevent.MarketEvent.Match;
+import gbdevw.colibri.domain.marketevent.MarketEvent.Ticker;
+import gbdevw.colibri.domain.utils.Utils.Currency;
+import gbdevw.colibri.domain.utils.Utils.Side;
 
 public class MarketEventTest {
 

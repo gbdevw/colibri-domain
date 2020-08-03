@@ -6,7 +6,7 @@ import "Utils.proto";
 
 // Package
 package colibri;
-option java_package = "io.gbdevw.colibri.domain.marketevent";
+option java_package = "gbdevw.colibri.domain.marketevent";
 
 /* Message that contain data of a market tick.
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z.

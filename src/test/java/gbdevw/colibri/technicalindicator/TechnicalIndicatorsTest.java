@@ -1,4 +1,4 @@
-package io.gbdevw.colibri.technicalindicator;
+package gbdevw.colibri.technicalindicator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -9,10 +9,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.gbdevw.colibri.domain.technicalindicators.TechnicalIndicators.MACD;
-import io.gbdevw.colibri.domain.technicalindicators.TechnicalIndicators.ROC;
-import io.gbdevw.colibri.domain.technicalindicators.TechnicalIndicators.RSI;
-import io.gbdevw.colibri.domain.utils.Utils.Currency;
+import gbdevw.colibri.domain.technicalindicators.TechnicalIndicators.MACD;
+import gbdevw.colibri.domain.technicalindicators.TechnicalIndicators.ROC;
+import gbdevw.colibri.domain.technicalindicators.TechnicalIndicators.RSI;
+import gbdevw.colibri.domain.utils.Utils.Currency;
 
 
 public class TechnicalIndicatorsTest {
