@@ -9,8 +9,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import gbdevw.colibri.domain.productbehavior.ProductBehavior.OHLCV;
-import gbdevw.colibri.domain.utils.Utils.Currency;
+import gbdevw.colibri.domain.Currency;
+import gbdevw.colibri.domain.OHLCV;
 
 public class ProductBehaviorTest {
 

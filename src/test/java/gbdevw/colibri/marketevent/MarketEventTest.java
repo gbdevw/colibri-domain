@@ -9,10 +9,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import gbdevw.colibri.domain.marketevent.MarketEvent.Match;
-import gbdevw.colibri.domain.marketevent.MarketEvent.Ticker;
-import gbdevw.colibri.domain.utils.Utils.Currency;
-import gbdevw.colibri.domain.utils.Utils.Side;
+import gbdevw.colibri.domain.Currency;
+import gbdevw.colibri.domain.Match;
+import gbdevw.colibri.domain.Side;
+import gbdevw.colibri.domain.Ticker;
 
 public class MarketEventTest {
 
