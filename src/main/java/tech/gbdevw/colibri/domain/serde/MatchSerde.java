@@ -5,18 +5,18 @@ import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serializer;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import tech.gbdevw.colibri.domain.OHLCV;
+import tech.gbdevw.colibri.domain.Match;
 
 @RegisterForReflection
-public class OHLCVSerde implements Serde<OHLCV> {
+public class MatchSerde implements Serde<Match> {
 
     @Override
-    public Serializer<OHLCV> serializer() {
-        return new OHLCVSerializer();
+    public Serializer<Match> serializer() {
+        return new MatchSerializer();
     }
 
     @Override
-    public Deserializer<OHLCV> deserializer() {
-        return new OHLCVDeserializer();
+    public Deserializer<Match> deserializer() {
+        return new MatchDeserializer();
     }
 }

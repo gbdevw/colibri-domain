@@ -5,16 +5,16 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import org.apache.kafka.common.serialization.Deserializer;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import tech.gbdevw.colibri.domain.OHLCV;
+import tech.gbdevw.colibri.domain.Match;
 
 @RegisterForReflection
-public class OHLCVDeserializer implements Deserializer<OHLCV> {
+public class MatchDeserializer implements Deserializer<Match> {
 
     @Override
-    public OHLCV deserialize(String topic, byte[] data) {
+    public Match deserialize(String topic, byte[] data) {
         try 
         {
-            return OHLCV.parseFrom(data);
+            return Match.parseFrom(data);
         } 
         catch (InvalidProtocolBufferException e) 
         {
