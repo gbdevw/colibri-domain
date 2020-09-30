@@ -1,33 +1,31 @@
 ### Introduction 
 
-This repository contains the protobuf schemas and generated java classes that describe the domain objects of the coinsight project.
+This repository contains the protobuf schemas and generated java classes that describe the domain objects of the colibri project.
 
 ### Domain
 
 - Market events
 
-Describe raw markent events such as market ticks and matches.
-
-- Product behavior
-
-Describe some base indicator produced from market events such as the OHLCV candles that describe the market behavior.
+Describe raw markent events such as market Ticker and Match.
 
 - Technical indicators
 
-Describe some tehcnical indicators produced from the base indicators such as the MACD, RSI or ROC.
+Describe some technical indicators produced from OHLCV candles such as the MACD, RSI or ROC.
 
 - Utils
 
-Describe some codes such as currncy codes, etc...
+Describe some codes for currencies, etc...
 
 
 ### Project structure
 
-src/main/resources/protobuf contains the schemas
+- src/main/resources/protobuf contains the schemas
 
-src/main/java contains the java classes generated from the schemas
+- src/main/java contains the java classes generated from the schemas
 
-src/test/java contains some unit tests on the generated java classes
+- serde contains KafkaSerializer and KafkaDeserializer for all the objects of the domain
+
+- src/test/java contains some unit tests on the generated java classes
 
 ### Generate sources
 
