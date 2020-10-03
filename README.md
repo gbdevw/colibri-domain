@@ -4,18 +4,33 @@ This repository contains the protobuf schemas and generated java classes that de
 
 ### Domain
 
-- Market events
+#### Market events
 
-Describe raw markent events such as market Ticker and Match.
+| Event | Description |
+| --- | --- |
+| Match | Produced every time a trade occurs. Contains trade data. |
+| Ticker | Produced on a regular time basis. Contains last trade data as well as some data about the market state. |
 
-- Technical indicators
+#### Technical indicators
 
-Describe some technical indicators produced from OHLCV candles such as the MACD, RSI or ROC.
+| Indicator | Description |
+| --- | --- |
+| OHLCV | Open, High, Low, Close, Volume |
+| SMA | Simple Moving Average |
+| EMA | Exponential Moving Average |
+| MACD | Moving Average Convergence Divergence |
+| KLO | Klinger Oscillator |
+| ROC | Rate Of Change + Support/Resistance |
+| RSI | Relative Strength Index |
+| MFI | Money Flow Index |
+| BOL | Bolinger Bands |
 
-- Utils
+#### Utils
 
-Describe some codes for currencies, etc...
-
+| Utils | Description |
+| --- | --- |
+| Currency | Currency codes (crypto. & fiat) |
+| Side | Code for the side of the trade (BUY | SELL) |
 
 ### Project structure
 
