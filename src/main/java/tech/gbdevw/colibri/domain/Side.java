@@ -4,6 +4,10 @@
 package tech.gbdevw.colibri.domain;
 
 /**
+ * <pre>
+ * Side codes 
+ * </pre>
+ *
  * Protobuf enum {@code tech.gbdevw.colibri.domain.Side}
  */
 public enum Side

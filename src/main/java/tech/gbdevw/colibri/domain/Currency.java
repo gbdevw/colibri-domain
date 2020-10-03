@@ -4,6 +4,10 @@
 package tech.gbdevw.colibri.domain;
 
 /**
+ * <pre>
+ * Currency Codes 
+ * </pre>
+ *
  * Protobuf enum {@code tech.gbdevw.colibri.domain.Currency}
  */
 public enum Currency

@@ -12,7 +12,7 @@ package tech.gbdevw.colibri.domain;
  * quote : Quote Currency (Ex : EUR, USD)
  * price : Price in quote Currency for one unit of unit Currency
  * size : Number of unit Currency exchanged during last trade
- * Side : Side of the trade
+ * side : Side of the trade
  * </pre>
  *
  * Protobuf type {@code tech.gbdevw.colibri.domain.Match}
@@ -213,14 +213,14 @@ private static final long serialVersionUID = 0L;
   public static final int SIDE_FIELD_NUMBER = 7;
   private int side_;
   /**
-   * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+   * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
    * @return The enum numeric value on the wire for side.
    */
   public int getSideValue() {
     return side_;
   }
   /**
-   * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+   * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
    * @return The side.
    */
   public tech.gbdevw.colibri.domain.Side getSide() {
@@ -462,7 +462,7 @@ private static final long serialVersionUID = 0L;
    * quote : Quote Currency (Ex : EUR, USD)
    * price : Price in quote Currency for one unit of unit Currency
    * size : Number of unit Currency exchanged during last trade
-   * Side : Side of the trade
+   * side : Side of the trade
    * </pre>
    *
    * Protobuf type {@code tech.gbdevw.colibri.domain.Match}
@@ -873,14 +873,14 @@ private static final long serialVersionUID = 0L;
 
     private int side_ = 0;
     /**
-     * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+     * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
      * @return The enum numeric value on the wire for side.
      */
     public int getSideValue() {
       return side_;
     }
     /**
-     * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+     * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
      * @param value The enum numeric value on the wire for side to set.
      * @return This builder for chaining.
      */
@@ -890,7 +890,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+     * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
      * @return The side.
      */
     public tech.gbdevw.colibri.domain.Side getSide() {
@@ -899,7 +899,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? tech.gbdevw.colibri.domain.Side.UNRECOGNIZED : result;
     }
     /**
-     * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+     * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
      * @param value The side to set.
      * @return This builder for chaining.
      */
@@ -913,7 +913,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+     * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearSide() {

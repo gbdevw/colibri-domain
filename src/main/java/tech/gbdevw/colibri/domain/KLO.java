@@ -5,31 +5,26 @@ package tech.gbdevw.colibri.domain;
 
 /**
  * <pre>
- * Open, High, Low, Close &amp; Volume candle
- * periodStart : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - Start of the period
+ * Klinger Oscillator
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
- * xPeriod : Number of periods used to compute the indicator
- * periodDuration : Duration of the period covered by the indicator in milliseonds
- * open : Open price in quote Currency for one unit of unit Currency
- * high : Max. price in quote Currency for one unit of unit Currency
- * low : Min. price in quote Currency for one unit of unit Currency
- * close : Close price in quote Currency for one unit of unit Currency
- * volume : Volume of unit Currency exchanged
+ * klo : Klinger Oscillator value
+ * signal : Signal value
  * </pre>
  *
- * Protobuf type {@code tech.gbdevw.colibri.domain.OHLCV}
+ * Protobuf type {@code tech.gbdevw.colibri.domain.KLO}
  */
-public  final class OHLCV extends
+public  final class KLO extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:tech.gbdevw.colibri.domain.OHLCV)
-    OHLCVOrBuilder {
+    // @@protoc_insertion_point(message_implements:tech.gbdevw.colibri.domain.KLO)
+    KLOOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use OHLCV.newBuilder() to construct.
-  private OHLCV(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use KLO.newBuilder() to construct.
+  private KLO(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private OHLCV() {
+  private KLO() {
     unit_ = 0;
     quote_ = 0;
   }
@@ -38,7 +33,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new OHLCV();
+    return new KLO();
   }
 
   @java.lang.Override
@@ -46,7 +41,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OHLCV(
+  private KLO(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -66,7 +61,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            periodStart_ = input.readUInt64();
+            timestamp_ = input.readUInt64();
             break;
           }
           case 16: {
@@ -81,39 +76,14 @@ private static final long serialVersionUID = 0L;
             quote_ = rawValue;
             break;
           }
-          case 32: {
+          case 33: {
 
-            xPeriod_ = input.readUInt64();
+            klo_ = input.readDouble();
             break;
           }
-          case 40: {
+          case 41: {
 
-            periodDuration_ = input.readUInt64();
-            break;
-          }
-          case 49: {
-
-            open_ = input.readDouble();
-            break;
-          }
-          case 57: {
-
-            high_ = input.readDouble();
-            break;
-          }
-          case 65: {
-
-            low_ = input.readDouble();
-            break;
-          }
-          case 73: {
-
-            close_ = input.readDouble();
-            break;
-          }
-          case 81: {
-
-            volume_ = input.readDouble();
+            signal_ = input.readDouble();
             break;
           }
           default: {
@@ -137,25 +107,25 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_OHLCV_descriptor;
+    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_KLO_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_OHLCV_fieldAccessorTable
+    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_KLO_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            tech.gbdevw.colibri.domain.OHLCV.class, tech.gbdevw.colibri.domain.OHLCV.Builder.class);
+            tech.gbdevw.colibri.domain.KLO.class, tech.gbdevw.colibri.domain.KLO.Builder.class);
   }
 
-  public static final int PERIODSTART_FIELD_NUMBER = 1;
-  private long periodStart_;
+  public static final int TIMESTAMP_FIELD_NUMBER = 1;
+  private long timestamp_;
   /**
-   * <code>uint64 periodStart = 1;</code>
-   * @return The periodStart.
+   * <code>uint64 timestamp = 1;</code>
+   * @return The timestamp.
    */
-  public long getPeriodStart() {
-    return periodStart_;
+  public long getTimestamp() {
+    return timestamp_;
   }
 
   public static final int UNIT_FIELD_NUMBER = 2;
@@ -196,74 +166,24 @@ private static final long serialVersionUID = 0L;
     return result == null ? tech.gbdevw.colibri.domain.Currency.UNRECOGNIZED : result;
   }
 
-  public static final int XPERIOD_FIELD_NUMBER = 4;
-  private long xPeriod_;
+  public static final int KLO_FIELD_NUMBER = 4;
+  private double klo_;
   /**
-   * <code>uint64 xPeriod = 4;</code>
-   * @return The xPeriod.
+   * <code>double klo = 4;</code>
+   * @return The klo.
    */
-  public long getXPeriod() {
-    return xPeriod_;
+  public double getKlo() {
+    return klo_;
   }
 
-  public static final int PERIODDURATION_FIELD_NUMBER = 5;
-  private long periodDuration_;
+  public static final int SIGNAL_FIELD_NUMBER = 5;
+  private double signal_;
   /**
-   * <code>uint64 periodDuration = 5;</code>
-   * @return The periodDuration.
+   * <code>double signal = 5;</code>
+   * @return The signal.
    */
-  public long getPeriodDuration() {
-    return periodDuration_;
-  }
-
-  public static final int OPEN_FIELD_NUMBER = 6;
-  private double open_;
-  /**
-   * <code>double open = 6;</code>
-   * @return The open.
-   */
-  public double getOpen() {
-    return open_;
-  }
-
-  public static final int HIGH_FIELD_NUMBER = 7;
-  private double high_;
-  /**
-   * <code>double high = 7;</code>
-   * @return The high.
-   */
-  public double getHigh() {
-    return high_;
-  }
-
-  public static final int LOW_FIELD_NUMBER = 8;
-  private double low_;
-  /**
-   * <code>double low = 8;</code>
-   * @return The low.
-   */
-  public double getLow() {
-    return low_;
-  }
-
-  public static final int CLOSE_FIELD_NUMBER = 9;
-  private double close_;
-  /**
-   * <code>double close = 9;</code>
-   * @return The close.
-   */
-  public double getClose() {
-    return close_;
-  }
-
-  public static final int VOLUME_FIELD_NUMBER = 10;
-  private double volume_;
-  /**
-   * <code>double volume = 10;</code>
-   * @return The volume.
-   */
-  public double getVolume() {
-    return volume_;
+  public double getSignal() {
+    return signal_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -280,8 +200,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (periodStart_ != 0L) {
-      output.writeUInt64(1, periodStart_);
+    if (timestamp_ != 0L) {
+      output.writeUInt64(1, timestamp_);
     }
     if (unit_ != tech.gbdevw.colibri.domain.Currency.EUR.getNumber()) {
       output.writeEnum(2, unit_);
@@ -289,26 +209,11 @@ private static final long serialVersionUID = 0L;
     if (quote_ != tech.gbdevw.colibri.domain.Currency.EUR.getNumber()) {
       output.writeEnum(3, quote_);
     }
-    if (xPeriod_ != 0L) {
-      output.writeUInt64(4, xPeriod_);
+    if (klo_ != 0D) {
+      output.writeDouble(4, klo_);
     }
-    if (periodDuration_ != 0L) {
-      output.writeUInt64(5, periodDuration_);
-    }
-    if (open_ != 0D) {
-      output.writeDouble(6, open_);
-    }
-    if (high_ != 0D) {
-      output.writeDouble(7, high_);
-    }
-    if (low_ != 0D) {
-      output.writeDouble(8, low_);
-    }
-    if (close_ != 0D) {
-      output.writeDouble(9, close_);
-    }
-    if (volume_ != 0D) {
-      output.writeDouble(10, volume_);
+    if (signal_ != 0D) {
+      output.writeDouble(5, signal_);
     }
     unknownFields.writeTo(output);
   }
@@ -319,9 +224,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (periodStart_ != 0L) {
+    if (timestamp_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, periodStart_);
+        .computeUInt64Size(1, timestamp_);
     }
     if (unit_ != tech.gbdevw.colibri.domain.Currency.EUR.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -331,33 +236,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, quote_);
     }
-    if (xPeriod_ != 0L) {
+    if (klo_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(4, xPeriod_);
+        .computeDoubleSize(4, klo_);
     }
-    if (periodDuration_ != 0L) {
+    if (signal_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(5, periodDuration_);
-    }
-    if (open_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(6, open_);
-    }
-    if (high_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(7, high_);
-    }
-    if (low_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(8, low_);
-    }
-    if (close_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(9, close_);
-    }
-    if (volume_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(10, volume_);
+        .computeDoubleSize(5, signal_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -369,34 +254,21 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof tech.gbdevw.colibri.domain.OHLCV)) {
+    if (!(obj instanceof tech.gbdevw.colibri.domain.KLO)) {
       return super.equals(obj);
     }
-    tech.gbdevw.colibri.domain.OHLCV other = (tech.gbdevw.colibri.domain.OHLCV) obj;
+    tech.gbdevw.colibri.domain.KLO other = (tech.gbdevw.colibri.domain.KLO) obj;
 
-    if (getPeriodStart()
-        != other.getPeriodStart()) return false;
+    if (getTimestamp()
+        != other.getTimestamp()) return false;
     if (unit_ != other.unit_) return false;
     if (quote_ != other.quote_) return false;
-    if (getXPeriod()
-        != other.getXPeriod()) return false;
-    if (getPeriodDuration()
-        != other.getPeriodDuration()) return false;
-    if (java.lang.Double.doubleToLongBits(getOpen())
+    if (java.lang.Double.doubleToLongBits(getKlo())
         != java.lang.Double.doubleToLongBits(
-            other.getOpen())) return false;
-    if (java.lang.Double.doubleToLongBits(getHigh())
+            other.getKlo())) return false;
+    if (java.lang.Double.doubleToLongBits(getSignal())
         != java.lang.Double.doubleToLongBits(
-            other.getHigh())) return false;
-    if (java.lang.Double.doubleToLongBits(getLow())
-        != java.lang.Double.doubleToLongBits(
-            other.getLow())) return false;
-    if (java.lang.Double.doubleToLongBits(getClose())
-        != java.lang.Double.doubleToLongBits(
-            other.getClose())) return false;
-    if (java.lang.Double.doubleToLongBits(getVolume())
-        != java.lang.Double.doubleToLongBits(
-            other.getVolume())) return false;
+            other.getSignal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -408,102 +280,87 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PERIODSTART_FIELD_NUMBER;
+    hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPeriodStart());
+        getTimestamp());
     hash = (37 * hash) + UNIT_FIELD_NUMBER;
     hash = (53 * hash) + unit_;
     hash = (37 * hash) + QUOTE_FIELD_NUMBER;
     hash = (53 * hash) + quote_;
-    hash = (37 * hash) + XPERIOD_FIELD_NUMBER;
+    hash = (37 * hash) + KLO_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getXPeriod());
-    hash = (37 * hash) + PERIODDURATION_FIELD_NUMBER;
+        java.lang.Double.doubleToLongBits(getKlo()));
+    hash = (37 * hash) + SIGNAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getPeriodDuration());
-    hash = (37 * hash) + OPEN_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getOpen()));
-    hash = (37 * hash) + HIGH_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getHigh()));
-    hash = (37 * hash) + LOW_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getLow()));
-    hash = (37 * hash) + CLOSE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getClose()));
-    hash = (37 * hash) + VOLUME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getVolume()));
+        java.lang.Double.doubleToLongBits(getSignal()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(byte[] data)
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(java.io.InputStream input)
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseDelimitedFrom(java.io.InputStream input)
+  public static tech.gbdevw.colibri.domain.KLO parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseDelimitedFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static tech.gbdevw.colibri.domain.OHLCV parseFrom(
+  public static tech.gbdevw.colibri.domain.KLO parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -516,7 +373,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(tech.gbdevw.colibri.domain.OHLCV prototype) {
+  public static Builder newBuilder(tech.gbdevw.colibri.domain.KLO prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -533,39 +390,34 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Open, High, Low, Close &amp; Volume candle
-   * periodStart : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - Start of the period
+   * Klinger Oscillator
+   * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
    * unit : Unit Currency (Ex : BTC, ETH)
    * quote : Quote Currency (Ex : EUR, USD)
-   * xPeriod : Number of periods used to compute the indicator
-   * periodDuration : Duration of the period covered by the indicator in milliseonds
-   * open : Open price in quote Currency for one unit of unit Currency
-   * high : Max. price in quote Currency for one unit of unit Currency
-   * low : Min. price in quote Currency for one unit of unit Currency
-   * close : Close price in quote Currency for one unit of unit Currency
-   * volume : Volume of unit Currency exchanged
+   * klo : Klinger Oscillator value
+   * signal : Signal value
    * </pre>
    *
-   * Protobuf type {@code tech.gbdevw.colibri.domain.OHLCV}
+   * Protobuf type {@code tech.gbdevw.colibri.domain.KLO}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:tech.gbdevw.colibri.domain.OHLCV)
-      tech.gbdevw.colibri.domain.OHLCVOrBuilder {
+      // @@protoc_insertion_point(builder_implements:tech.gbdevw.colibri.domain.KLO)
+      tech.gbdevw.colibri.domain.KLOOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_OHLCV_descriptor;
+      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_KLO_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_OHLCV_fieldAccessorTable
+      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_KLO_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              tech.gbdevw.colibri.domain.OHLCV.class, tech.gbdevw.colibri.domain.OHLCV.Builder.class);
+              tech.gbdevw.colibri.domain.KLO.class, tech.gbdevw.colibri.domain.KLO.Builder.class);
     }
 
-    // Construct using tech.gbdevw.colibri.domain.OHLCV.newBuilder()
+    // Construct using tech.gbdevw.colibri.domain.KLO.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -583,25 +435,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      periodStart_ = 0L;
+      timestamp_ = 0L;
 
       unit_ = 0;
 
       quote_ = 0;
 
-      xPeriod_ = 0L;
+      klo_ = 0D;
 
-      periodDuration_ = 0L;
-
-      open_ = 0D;
-
-      high_ = 0D;
-
-      low_ = 0D;
-
-      close_ = 0D;
-
-      volume_ = 0D;
+      signal_ = 0D;
 
       return this;
     }
@@ -609,17 +451,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_OHLCV_descriptor;
+      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_KLO_descriptor;
     }
 
     @java.lang.Override
-    public tech.gbdevw.colibri.domain.OHLCV getDefaultInstanceForType() {
-      return tech.gbdevw.colibri.domain.OHLCV.getDefaultInstance();
+    public tech.gbdevw.colibri.domain.KLO getDefaultInstanceForType() {
+      return tech.gbdevw.colibri.domain.KLO.getDefaultInstance();
     }
 
     @java.lang.Override
-    public tech.gbdevw.colibri.domain.OHLCV build() {
-      tech.gbdevw.colibri.domain.OHLCV result = buildPartial();
+    public tech.gbdevw.colibri.domain.KLO build() {
+      tech.gbdevw.colibri.domain.KLO result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -627,18 +469,13 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public tech.gbdevw.colibri.domain.OHLCV buildPartial() {
-      tech.gbdevw.colibri.domain.OHLCV result = new tech.gbdevw.colibri.domain.OHLCV(this);
-      result.periodStart_ = periodStart_;
+    public tech.gbdevw.colibri.domain.KLO buildPartial() {
+      tech.gbdevw.colibri.domain.KLO result = new tech.gbdevw.colibri.domain.KLO(this);
+      result.timestamp_ = timestamp_;
       result.unit_ = unit_;
       result.quote_ = quote_;
-      result.xPeriod_ = xPeriod_;
-      result.periodDuration_ = periodDuration_;
-      result.open_ = open_;
-      result.high_ = high_;
-      result.low_ = low_;
-      result.close_ = close_;
-      result.volume_ = volume_;
+      result.klo_ = klo_;
+      result.signal_ = signal_;
       onBuilt();
       return result;
     }
@@ -677,18 +514,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof tech.gbdevw.colibri.domain.OHLCV) {
-        return mergeFrom((tech.gbdevw.colibri.domain.OHLCV)other);
+      if (other instanceof tech.gbdevw.colibri.domain.KLO) {
+        return mergeFrom((tech.gbdevw.colibri.domain.KLO)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(tech.gbdevw.colibri.domain.OHLCV other) {
-      if (other == tech.gbdevw.colibri.domain.OHLCV.getDefaultInstance()) return this;
-      if (other.getPeriodStart() != 0L) {
-        setPeriodStart(other.getPeriodStart());
+    public Builder mergeFrom(tech.gbdevw.colibri.domain.KLO other) {
+      if (other == tech.gbdevw.colibri.domain.KLO.getDefaultInstance()) return this;
+      if (other.getTimestamp() != 0L) {
+        setTimestamp(other.getTimestamp());
       }
       if (other.unit_ != 0) {
         setUnitValue(other.getUnitValue());
@@ -696,26 +533,11 @@ private static final long serialVersionUID = 0L;
       if (other.quote_ != 0) {
         setQuoteValue(other.getQuoteValue());
       }
-      if (other.getXPeriod() != 0L) {
-        setXPeriod(other.getXPeriod());
+      if (other.getKlo() != 0D) {
+        setKlo(other.getKlo());
       }
-      if (other.getPeriodDuration() != 0L) {
-        setPeriodDuration(other.getPeriodDuration());
-      }
-      if (other.getOpen() != 0D) {
-        setOpen(other.getOpen());
-      }
-      if (other.getHigh() != 0D) {
-        setHigh(other.getHigh());
-      }
-      if (other.getLow() != 0D) {
-        setLow(other.getLow());
-      }
-      if (other.getClose() != 0D) {
-        setClose(other.getClose());
-      }
-      if (other.getVolume() != 0D) {
-        setVolume(other.getVolume());
+      if (other.getSignal() != 0D) {
+        setSignal(other.getSignal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -732,11 +554,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      tech.gbdevw.colibri.domain.OHLCV parsedMessage = null;
+      tech.gbdevw.colibri.domain.KLO parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (tech.gbdevw.colibri.domain.OHLCV) e.getUnfinishedMessage();
+        parsedMessage = (tech.gbdevw.colibri.domain.KLO) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -746,32 +568,32 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long periodStart_ ;
+    private long timestamp_ ;
     /**
-     * <code>uint64 periodStart = 1;</code>
-     * @return The periodStart.
+     * <code>uint64 timestamp = 1;</code>
+     * @return The timestamp.
      */
-    public long getPeriodStart() {
-      return periodStart_;
+    public long getTimestamp() {
+      return timestamp_;
     }
     /**
-     * <code>uint64 periodStart = 1;</code>
-     * @param value The periodStart to set.
+     * <code>uint64 timestamp = 1;</code>
+     * @param value The timestamp to set.
      * @return This builder for chaining.
      */
-    public Builder setPeriodStart(long value) {
+    public Builder setTimestamp(long value) {
       
-      periodStart_ = value;
+      timestamp_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint64 periodStart = 1;</code>
+     * <code>uint64 timestamp = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPeriodStart() {
+    public Builder clearTimestamp() {
       
-      periodStart_ = 0L;
+      timestamp_ = 0L;
       onChanged();
       return this;
     }
@@ -880,212 +702,62 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long xPeriod_ ;
+    private double klo_ ;
     /**
-     * <code>uint64 xPeriod = 4;</code>
-     * @return The xPeriod.
+     * <code>double klo = 4;</code>
+     * @return The klo.
      */
-    public long getXPeriod() {
-      return xPeriod_;
+    public double getKlo() {
+      return klo_;
     }
     /**
-     * <code>uint64 xPeriod = 4;</code>
-     * @param value The xPeriod to set.
+     * <code>double klo = 4;</code>
+     * @param value The klo to set.
      * @return This builder for chaining.
      */
-    public Builder setXPeriod(long value) {
+    public Builder setKlo(double value) {
       
-      xPeriod_ = value;
+      klo_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint64 xPeriod = 4;</code>
+     * <code>double klo = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearXPeriod() {
+    public Builder clearKlo() {
       
-      xPeriod_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long periodDuration_ ;
-    /**
-     * <code>uint64 periodDuration = 5;</code>
-     * @return The periodDuration.
-     */
-    public long getPeriodDuration() {
-      return periodDuration_;
-    }
-    /**
-     * <code>uint64 periodDuration = 5;</code>
-     * @param value The periodDuration to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPeriodDuration(long value) {
-      
-      periodDuration_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 periodDuration = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPeriodDuration() {
-      
-      periodDuration_ = 0L;
+      klo_ = 0D;
       onChanged();
       return this;
     }
 
-    private double open_ ;
+    private double signal_ ;
     /**
-     * <code>double open = 6;</code>
-     * @return The open.
+     * <code>double signal = 5;</code>
+     * @return The signal.
      */
-    public double getOpen() {
-      return open_;
+    public double getSignal() {
+      return signal_;
     }
     /**
-     * <code>double open = 6;</code>
-     * @param value The open to set.
+     * <code>double signal = 5;</code>
+     * @param value The signal to set.
      * @return This builder for chaining.
      */
-    public Builder setOpen(double value) {
+    public Builder setSignal(double value) {
       
-      open_ = value;
+      signal_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double open = 6;</code>
+     * <code>double signal = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearOpen() {
+    public Builder clearSignal() {
       
-      open_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double high_ ;
-    /**
-     * <code>double high = 7;</code>
-     * @return The high.
-     */
-    public double getHigh() {
-      return high_;
-    }
-    /**
-     * <code>double high = 7;</code>
-     * @param value The high to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHigh(double value) {
-      
-      high_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double high = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHigh() {
-      
-      high_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double low_ ;
-    /**
-     * <code>double low = 8;</code>
-     * @return The low.
-     */
-    public double getLow() {
-      return low_;
-    }
-    /**
-     * <code>double low = 8;</code>
-     * @param value The low to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLow(double value) {
-      
-      low_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double low = 8;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLow() {
-      
-      low_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double close_ ;
-    /**
-     * <code>double close = 9;</code>
-     * @return The close.
-     */
-    public double getClose() {
-      return close_;
-    }
-    /**
-     * <code>double close = 9;</code>
-     * @param value The close to set.
-     * @return This builder for chaining.
-     */
-    public Builder setClose(double value) {
-      
-      close_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double close = 9;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearClose() {
-      
-      close_ = 0D;
-      onChanged();
-      return this;
-    }
-
-    private double volume_ ;
-    /**
-     * <code>double volume = 10;</code>
-     * @return The volume.
-     */
-    public double getVolume() {
-      return volume_;
-    }
-    /**
-     * <code>double volume = 10;</code>
-     * @param value The volume to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVolume(double value) {
-      
-      volume_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double volume = 10;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVolume() {
-      
-      volume_ = 0D;
+      signal_ = 0D;
       onChanged();
       return this;
     }
@@ -1102,41 +774,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:tech.gbdevw.colibri.domain.OHLCV)
+    // @@protoc_insertion_point(builder_scope:tech.gbdevw.colibri.domain.KLO)
   }
 
-  // @@protoc_insertion_point(class_scope:tech.gbdevw.colibri.domain.OHLCV)
-  private static final tech.gbdevw.colibri.domain.OHLCV DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:tech.gbdevw.colibri.domain.KLO)
+  private static final tech.gbdevw.colibri.domain.KLO DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new tech.gbdevw.colibri.domain.OHLCV();
+    DEFAULT_INSTANCE = new tech.gbdevw.colibri.domain.KLO();
   }
 
-  public static tech.gbdevw.colibri.domain.OHLCV getDefaultInstance() {
+  public static tech.gbdevw.colibri.domain.KLO getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<OHLCV>
-      PARSER = new com.google.protobuf.AbstractParser<OHLCV>() {
+  private static final com.google.protobuf.Parser<KLO>
+      PARSER = new com.google.protobuf.AbstractParser<KLO>() {
     @java.lang.Override
-    public OHLCV parsePartialFrom(
+    public KLO parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OHLCV(input, extensionRegistry);
+      return new KLO(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<OHLCV> parser() {
+  public static com.google.protobuf.Parser<KLO> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<OHLCV> getParserForType() {
+  public com.google.protobuf.Parser<KLO> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public tech.gbdevw.colibri.domain.OHLCV getDefaultInstanceForType() {
+  public tech.gbdevw.colibri.domain.KLO getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

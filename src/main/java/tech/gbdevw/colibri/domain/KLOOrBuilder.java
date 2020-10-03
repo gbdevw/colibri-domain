@@ -3,8 +3,8 @@
 
 package tech.gbdevw.colibri.domain;
 
-public interface RSIOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.RSI)
+public interface KLOOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.KLO)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -36,8 +36,14 @@ public interface RSIOrBuilder extends
   tech.gbdevw.colibri.domain.Currency getQuote();
 
   /**
-   * <code>double rsi = 4;</code>
-   * @return The rsi.
+   * <code>double klo = 4;</code>
+   * @return The klo.
    */
-  double getRsi();
+  double getKlo();
+
+  /**
+   * <code>double signal = 5;</code>
+   * @return The signal.
+   */
+  double getSignal();
 }

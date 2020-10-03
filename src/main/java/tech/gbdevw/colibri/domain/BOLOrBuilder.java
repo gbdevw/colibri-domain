@@ -3,15 +3,15 @@
 
 package tech.gbdevw.colibri.domain;
 
-public interface OHLCVOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.OHLCV)
+public interface BOLOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.BOL)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint64 periodStart = 1;</code>
-   * @return The periodStart.
+   * <code>uint64 timestamp = 1;</code>
+   * @return The timestamp.
    */
-  long getPeriodStart();
+  long getTimestamp();
 
   /**
    * <code>.tech.gbdevw.colibri.domain.Currency unit = 2;</code>
@@ -36,44 +36,26 @@ public interface OHLCVOrBuilder extends
   tech.gbdevw.colibri.domain.Currency getQuote();
 
   /**
-   * <code>uint64 xPeriod = 4;</code>
-   * @return The xPeriod.
+   * <code>double bolu1 = 4;</code>
+   * @return The bolu1.
    */
-  long getXPeriod();
+  double getBolu1();
 
   /**
-   * <code>uint64 periodDuration = 5;</code>
-   * @return The periodDuration.
+   * <code>double bolu2 = 5;</code>
+   * @return The bolu2.
    */
-  long getPeriodDuration();
+  double getBolu2();
 
   /**
-   * <code>double open = 6;</code>
-   * @return The open.
+   * <code>double bold1 = 6;</code>
+   * @return The bold1.
    */
-  double getOpen();
+  double getBold1();
 
   /**
-   * <code>double high = 7;</code>
-   * @return The high.
+   * <code>double bold2 = 7;</code>
+   * @return The bold2.
    */
-  double getHigh();
-
-  /**
-   * <code>double low = 8;</code>
-   * @return The low.
-   */
-  double getLow();
-
-  /**
-   * <code>double close = 9;</code>
-   * @return The close.
-   */
-  double getClose();
-
-  /**
-   * <code>double volume = 10;</code>
-   * @return The volume.
-   */
-  double getVolume();
+  double getBold2();
 }

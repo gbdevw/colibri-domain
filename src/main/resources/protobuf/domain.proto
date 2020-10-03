@@ -4,6 +4,7 @@ package tech.gbdevw.colibri.domain;
 option java_package = "tech.gbdevw.colibri.domain";
 option java_multiple_files = true;
 
+/* Currency Codes */
 enum Currency {
     EUR=0;
     USD=1;
@@ -11,6 +12,7 @@ enum Currency {
     ETH=3;
 }
 
+/* Side codes */
 enum Side {
     BUY=0;
     SELL=1;
@@ -23,7 +25,7 @@ enum Side {
  * quote : Quote Currency (Ex : EUR, USD)
  * price : Price in quote Currency for one unit of unit Currency
  * size : Number of unit Currency exchanged during last trade
- * Side : Side of the trade
+ * side : Side of the trade
  */
 message Match {
     uint64 timestamp=1;
@@ -32,7 +34,7 @@ message Match {
     Currency quote=4;
     double price=5;
     double size=6;
-    Side Side=7;
+    Side side=7;
 }
 
 /* Message that contain data of a market tick.
@@ -62,7 +64,8 @@ message Ticker {
  * periodStart : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - Start of the period
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
- * periodDuration : Duration of the period in milliseconds
+ * xPeriod : Number of periods used to compute the indicator
+ * periodDuration : Duration of the period covered by the indicator in milliseonds
  * open : Open price in quote Currency for one unit of unit Currency
  * high : Max. price in quote Currency for one unit of unit Currency
  * low : Min. price in quote Currency for one unit of unit Currency
@@ -73,12 +76,39 @@ message OHLCV {
     uint64 periodStart=1;
     Currency unit=2;
     Currency quote=3;
-    uint64 periodDuration=4;
-    double open=5;
-    double high=6;
-    double low=7;
-    double close=8;
-    double volume=9;
+    uint64 xPeriod=4;
+    uint64 periodDuration=5;
+    double open=6;
+    double high=7;
+    double low=8;
+    double close=9;
+    double volume=10;
+}
+
+/* Simple Moving Average
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * value : Value of the indicator
+ */
+message SMA {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    double value=4;
+}
+
+/* Exponential Moving Average
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * value : Value of the indicator
+ */
+message EMA {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    double value=4;
 }
 
 /* Moving Average Convergence-Divergence (ex : Slow EMA : 26, Fast EMA : 10, Signal : 9)
@@ -93,7 +123,22 @@ message MACD {
     Currency unit=2;
     Currency quote=3;
     double macd=4;
-    double signal=5; 
+    double signal=5;
+}
+
+/* Klinger Oscillator
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * klo : Klinger Oscillator value
+ * signal : Signal value
+ */
+message KLO {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    double klo=4;
+    double signal=5;
 }
 
 /* Rate Of Change
@@ -119,13 +164,43 @@ message ROC {
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
- * xPeriod : Number of candles used to produce the indicator
  * rsi : RSI value
  */
  message RSI {
     uint64 timestamp=1;
     Currency unit=2;
     Currency quote=3;
-    uint32 xPeriod=4;
-    double rsi=5;
+    double rsi=4;
+}
+
+/* Money Flow Index
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * mfi : MFI value
+ */
+ message MFI {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    double mfi=4;
+}
+
+/* Bolinger Bands
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * bolu1 : Upper Bolinger band for 1 standard deviation
+ * bolu2 : Upper Bolinger band for 2 standard deviations 
+ * bold1 : Lower Bolinger band for 1 standard deviation
+ * bold2 : Lower Bolinger band for 2 standard deviations 
+ */
+message BOL {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    double bolu1=4;
+    double bolu2=5;
+    double bold1=6;
+    double bold2=7;
 }

@@ -54,12 +54,12 @@ public interface MatchOrBuilder extends
   double getSize();
 
   /**
-   * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+   * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
    * @return The enum numeric value on the wire for side.
    */
   int getSideValue();
   /**
-   * <code>.tech.gbdevw.colibri.domain.Side Side = 7;</code>
+   * <code>.tech.gbdevw.colibri.domain.Side side = 7;</code>
    * @return The side.
    */
   tech.gbdevw.colibri.domain.Side getSide();

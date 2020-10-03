@@ -124,7 +124,6 @@ public class TechnicalIndicatorsTest {
                 .setTimestamp(now.toEpochMilli())
                 .setUnit(base)
                 .setQuote(quote)
-                .setXPeriod(xPeriod)
                 .setRsi(rsi)
                 .build();
 
@@ -132,7 +131,6 @@ public class TechnicalIndicatorsTest {
             assertEquals(now.toEpochMilli(), rsix.getTimestamp());
             assertEquals(base, rsix.getUnit());
             assertEquals(quote, rsix.getQuote());
-            assertEquals(xPeriod, rsix.getXPeriod());
             assertEquals(rsi, rsix.getRsi(), 0.0000001);
 
             // Test payload size
