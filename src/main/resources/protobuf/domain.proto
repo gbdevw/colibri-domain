@@ -89,63 +89,60 @@ message OHLCV {
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to compute the indicator
  * value : Value of the indicator
  */
 message SMA {
     uint64 timestamp=1;
     Currency unit=2;
     Currency quote=3;
-    double value=4;
+    uint32 xPeriod=4;
+    double value=5;
+}
+
+/* Moving Average Ribbon
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod1 : Number of periods used to compute the fast SMA (ex : 5)
+ * xPeriod2 : Number of periods used to compute the medium SMA (ex : 8)
+ * xPeriod3 : Number of periods used to compute the slow SMA (ex: 13)
+ * fast : Value of the fast SMA
+ * medium : Value of the medium SMA
+ * slow : Value of the slow SMA
+ */
+message MAR {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    uint32 xPeriod1=4;
+    uint32 xPeriod2=5;
+    uint32 xPeriod3=6;
+    double fast=7;
+    double medium=8;
+    double slow=9;
 }
 
 /* Exponential Moving Average
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to compute the indicator
  * value : Value of the indicator
  */
 message EMA {
     uint64 timestamp=1;
     Currency unit=2;
     Currency quote=3;
-    double value=4;
-}
-
-/* Moving Average Convergence-Divergence (ex : Slow EMA : 26, Fast EMA : 10, Signal : 9)
- * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
- * unit : Unit Currency (Ex : BTC, ETH)
- * quote : Quote Currency (Ex : EUR, USD)
- * macd : MACD value (slow - fast)
- * signal : Signal value
- */
-message MACD {
-    uint64 timestamp=1;
-    Currency unit=2;
-    Currency quote=3;
-    double macd=4;
-    double signal=5;
-}
-
-/* Klinger Oscillator
- * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
- * unit : Unit Currency (Ex : BTC, ETH)
- * quote : Quote Currency (Ex : EUR, USD)
- * klo : Klinger Oscillator value
- * signal : Signal value
- */
-message KLO {
-    uint64 timestamp=1;
-    Currency unit=2;
-    Currency quote=3;
-    double klo=4;
-    double signal=5;
+    uint32 xPeriod=4;
+    double value=5;
 }
 
 /* Rate Of Change
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
- * xPeriod : Number of OHLCV used to produce the indicator
+ * xPeriod : Number of periods used to produce the indicator
  * roc : ROC value for the period (decimal, 0.01 stands for 1%)
  * resistance : Maximal closing price in quote Currency for one unit of unit Currency for the period
  * support : Minimal closing price in quote Currency for one unit of unit Currency for the period
@@ -155,52 +152,66 @@ message ROC {
     Currency unit=2;
     Currency quote=3;
     uint32 xPeriod=4;
-    double roc=6;
-    double resistance=7;
-    double support=8;
-}
-
-/* Relative Strength Index
- * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
- * unit : Unit Currency (Ex : BTC, ETH)
- * quote : Quote Currency (Ex : EUR, USD)
- * rsi : RSI value
- */
- message RSI {
-    uint64 timestamp=1;
-    Currency unit=2;
-    Currency quote=3;
-    double rsi=4;
-}
-
-/* Money Flow Index
- * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
- * unit : Unit Currency (Ex : BTC, ETH)
- * quote : Quote Currency (Ex : EUR, USD)
- * mfi : MFI value
- */
- message MFI {
-    uint64 timestamp=1;
-    Currency unit=2;
-    Currency quote=3;
-    double mfi=4;
+    double roc=5;
+    double resistance=6;
+    double support=7;
 }
 
 /* Bolinger Bands
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to compute the indicator
  * bolu1 : Upper Bolinger band for 1 standard deviation
- * bolu2 : Upper Bolinger band for 2 standard deviations 
+ * bolu2 : Upper Bolinger band for 2 standard deviations
+ * bolu3 : Upper Bolinger band for 3 standard deviations
+ * bolu4 : Upper Bolinger band for 4 standard deviations  
  * bold1 : Lower Bolinger band for 1 standard deviation
- * bold2 : Lower Bolinger band for 2 standard deviations 
+ * bold2 : Lower Bolinger band for 2 standard deviations
+ * bold3 : Lower Bolinger band for 3 standard deviations
+ * bold4 : Lower Bolinger band for 4 standard deviations  
  */
 message BOL {
     uint64 timestamp=1;
     Currency unit=2;
     Currency quote=3;
-    double bolu1=4;
-    double bolu2=5;
-    double bold1=6;
-    double bold2=7;
+    uint32 xPeriod=4;
+    double bolu1=5;
+    double bolu2=6;
+    double bolu3=7;
+    double bolu4=8;
+    double bold1=9;
+    double bold2=10;
+    double bold3=11;
+    double bold4=12;
+}
+
+/* Slow Stochastic Oscillator
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to produce the indicator (to take lowest and highest closing price)
+ * value : value of the indicator (between 0.0 and 100.0)
+ */
+message SSO {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    uint32 xPeriod=4;
+    double value=5;
+}
+
+/* Fast Stochastic Oscillator
+ * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
+ * unit : Unit Currency (Ex : BTC, ETH)
+ * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to produce the indicator (SMA of Slow Stochastic Oscillator Value)
+ * value : value of the indicator (between 0.0 and 100.0)
+ */
+message FSO {
+    uint64 timestamp=1;
+    Currency unit=2;
+    Currency quote=3;
+    uint32 xPeriod=4;
+    double value=5;
 }
