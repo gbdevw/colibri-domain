@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>tech.gbdevw.colibri</groupId>
     <artifactId>colibri-domain</artifactId>
-    <version>4.0.0</version>
+    <version>5.0.0</version>
     <properties>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <protoc-plugin.version>3.11.4</protoc-plugin.version>

@@ -3,8 +3,8 @@
 
 package tech.gbdevw.colibri.domain;
 
-public interface EMAOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.EMA)
+public interface SSOOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.SSO)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -3,8 +3,8 @@
 
 package tech.gbdevw.colibri.domain;
 
-public interface EMAOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.EMA)
+public interface MAROrBuilder extends
+    // @@protoc_insertion_point(interface_extends:tech.gbdevw.colibri.domain.MAR)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -36,14 +36,38 @@ public interface EMAOrBuilder extends
   tech.gbdevw.colibri.domain.Currency getQuote();
 
   /**
-   * <code>uint32 xPeriod = 4;</code>
-   * @return The xPeriod.
+   * <code>uint32 xPeriod1 = 4;</code>
+   * @return The xPeriod1.
    */
-  int getXPeriod();
+  int getXPeriod1();
 
   /**
-   * <code>double value = 5;</code>
-   * @return The value.
+   * <code>uint32 xPeriod2 = 5;</code>
+   * @return The xPeriod2.
    */
-  double getValue();
+  int getXPeriod2();
+
+  /**
+   * <code>uint32 xPeriod3 = 6;</code>
+   * @return The xPeriod3.
+   */
+  int getXPeriod3();
+
+  /**
+   * <code>double fast = 7;</code>
+   * @return The fast.
+   */
+  double getFast();
+
+  /**
+   * <code>double medium = 8;</code>
+   * @return The medium.
+   */
+  double getMedium();
+
+  /**
+   * <code>double slow = 9;</code>
+   * @return The slow.
+   */
+  double getSlow();
 }

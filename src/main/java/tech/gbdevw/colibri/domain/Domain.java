@@ -35,40 +35,35 @@ public final class Domain {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tech_gbdevw_colibri_domain_SMA_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tech_gbdevw_colibri_domain_MAR_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tech_gbdevw_colibri_domain_MAR_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_tech_gbdevw_colibri_domain_EMA_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tech_gbdevw_colibri_domain_EMA_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tech_gbdevw_colibri_domain_MACD_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_tech_gbdevw_colibri_domain_MACD_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tech_gbdevw_colibri_domain_KLO_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_tech_gbdevw_colibri_domain_KLO_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_tech_gbdevw_colibri_domain_ROC_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tech_gbdevw_colibri_domain_ROC_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tech_gbdevw_colibri_domain_RSI_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_tech_gbdevw_colibri_domain_RSI_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tech_gbdevw_colibri_domain_MFI_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_tech_gbdevw_colibri_domain_MFI_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_tech_gbdevw_colibri_domain_BOL_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tech_gbdevw_colibri_domain_BOL_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tech_gbdevw_colibri_domain_SSO_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tech_gbdevw_colibri_domain_SSO_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tech_gbdevw_colibri_domain_FSO_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tech_gbdevw_colibri_domain_FSO_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -98,42 +93,43 @@ public final class Domain {
       "rrency\022\017\n\007xPeriod\030\004 \001(\004\022\026\n\016periodDuratio" +
       "n\030\005 \001(\004\022\014\n\004open\030\006 \001(\001\022\014\n\004high\030\007 \001(\001\022\013\n\003l" +
       "ow\030\010 \001(\001\022\r\n\005close\030\t \001(\001\022\016\n\006volume\030\n \001(\001\"" +
-      "\220\001\n\003SMA\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\016" +
+      "\241\001\n\003SMA\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\016" +
       "2$.tech.gbdevw.colibri.domain.Currency\0223" +
       "\n\005quote\030\003 \001(\0162$.tech.gbdevw.colibri.doma" +
-      "in.Currency\022\r\n\005value\030\004 \001(\001\"\220\001\n\003EMA\022\021\n\tti" +
-      "mestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdev" +
-      "w.colibri.domain.Currency\0223\n\005quote\030\003 \001(\016" +
-      "2$.tech.gbdevw.colibri.domain.Currency\022\r" +
-      "\n\005value\030\004 \001(\001\"\240\001\n\004MACD\022\021\n\ttimestamp\030\001 \001(" +
-      "\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdevw.colibri.do" +
-      "main.Currency\0223\n\005quote\030\003 \001(\0162$.tech.gbde" +
-      "vw.colibri.domain.Currency\022\014\n\004macd\030\004 \001(\001" +
-      "\022\016\n\006signal\030\005 \001(\001\"\236\001\n\003KLO\022\021\n\ttimestamp\030\001 " +
-      "\001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdevw.colibri." +
-      "domain.Currency\0223\n\005quote\030\003 \001(\0162$.tech.gb" +
-      "devw.colibri.domain.Currency\022\013\n\003klo\030\004 \001(" +
-      "\001\022\016\n\006signal\030\005 \001(\001\"\304\001\n\003ROC\022\021\n\ttimestamp\030\001" +
-      " \001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdevw.colibri" +
-      ".domain.Currency\0223\n\005quote\030\003 \001(\0162$.tech.g" +
-      "bdevw.colibri.domain.Currency\022\017\n\007xPeriod" +
-      "\030\004 \001(\r\022\013\n\003roc\030\006 \001(\001\022\022\n\nresistance\030\007 \001(\001\022" +
-      "\017\n\007support\030\010 \001(\001\"\216\001\n\003RSI\022\021\n\ttimestamp\030\001 " +
-      "\001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdevw.colibri." +
-      "domain.Currency\0223\n\005quote\030\003 \001(\0162$.tech.gb" +
-      "devw.colibri.domain.Currency\022\013\n\003rsi\030\004 \001(" +
-      "\001\"\216\001\n\003MFI\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001" +
-      "(\0162$.tech.gbdevw.colibri.domain.Currency" +
-      "\0223\n\005quote\030\003 \001(\0162$.tech.gbdevw.colibri.do" +
-      "main.Currency\022\013\n\003mfi\030\004 \001(\001\"\275\001\n\003BOL\022\021\n\tti" +
-      "mestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdev" +
-      "w.colibri.domain.Currency\0223\n\005quote\030\003 \001(\016" +
-      "2$.tech.gbdevw.colibri.domain.Currency\022\r" +
-      "\n\005bolu1\030\004 \001(\001\022\r\n\005bolu2\030\005 \001(\001\022\r\n\005bold1\030\006 " +
-      "\001(\001\022\r\n\005bold2\030\007 \001(\001*.\n\010Currency\022\007\n\003EUR\020\000\022" +
-      "\007\n\003USD\020\001\022\007\n\003BTC\020\002\022\007\n\003ETH\020\003*\031\n\004Side\022\007\n\003BU" +
-      "Y\020\000\022\010\n\004SELL\020\001B\036\n\032tech.gbdevw.colibri.dom" +
-      "ainP\001b\006proto3"
+      "in.Currency\022\017\n\007xPeriod\030\004 \001(\r\022\r\n\005value\030\005 " +
+      "\001(\001\"\343\001\n\003MAR\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002" +
+      " \001(\0162$.tech.gbdevw.colibri.domain.Curren" +
+      "cy\0223\n\005quote\030\003 \001(\0162$.tech.gbdevw.colibri." +
+      "domain.Currency\022\020\n\010xPeriod1\030\004 \001(\r\022\020\n\010xPe" +
+      "riod2\030\005 \001(\r\022\020\n\010xPeriod3\030\006 \001(\r\022\014\n\004fast\030\007 " +
+      "\001(\001\022\016\n\006medium\030\010 \001(\001\022\014\n\004slow\030\t \001(\001\"\241\001\n\003EM" +
+      "A\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$.tec" +
+      "h.gbdevw.colibri.domain.Currency\0223\n\005quot" +
+      "e\030\003 \001(\0162$.tech.gbdevw.colibri.domain.Cur" +
+      "rency\022\017\n\007xPeriod\030\004 \001(\r\022\r\n\005value\030\005 \001(\001\"\304\001" +
+      "\n\003ROC\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$" +
+      ".tech.gbdevw.colibri.domain.Currency\0223\n\005" +
+      "quote\030\003 \001(\0162$.tech.gbdevw.colibri.domain" +
+      ".Currency\022\017\n\007xPeriod\030\004 \001(\r\022\013\n\003roc\030\005 \001(\001\022" +
+      "\022\n\nresistance\030\006 \001(\001\022\017\n\007support\030\007 \001(\001\"\212\002\n" +
+      "\003BOL\022\021\n\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$." +
+      "tech.gbdevw.colibri.domain.Currency\0223\n\005q" +
+      "uote\030\003 \001(\0162$.tech.gbdevw.colibri.domain." +
+      "Currency\022\017\n\007xPeriod\030\004 \001(\r\022\r\n\005bolu1\030\005 \001(\001" +
+      "\022\r\n\005bolu2\030\006 \001(\001\022\r\n\005bolu3\030\007 \001(\001\022\r\n\005bolu4\030" +
+      "\010 \001(\001\022\r\n\005bold1\030\t \001(\001\022\r\n\005bold2\030\n \001(\001\022\r\n\005b" +
+      "old3\030\013 \001(\001\022\r\n\005bold4\030\014 \001(\001\"\241\001\n\003SSO\022\021\n\ttim" +
+      "estamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gbdevw" +
+      ".colibri.domain.Currency\0223\n\005quote\030\003 \001(\0162" +
+      "$.tech.gbdevw.colibri.domain.Currency\022\017\n" +
+      "\007xPeriod\030\004 \001(\r\022\r\n\005value\030\005 \001(\001\"\241\001\n\003FSO\022\021\n" +
+      "\ttimestamp\030\001 \001(\004\0222\n\004unit\030\002 \001(\0162$.tech.gb" +
+      "devw.colibri.domain.Currency\0223\n\005quote\030\003 " +
+      "\001(\0162$.tech.gbdevw.colibri.domain.Currenc" +
+      "y\022\017\n\007xPeriod\030\004 \001(\r\022\r\n\005value\030\005 \001(\001*.\n\010Cur" +
+      "rency\022\007\n\003EUR\020\000\022\007\n\003USD\020\001\022\007\n\003BTC\020\002\022\007\n\003ETH\020" +
+      "\003*\031\n\004Side\022\007\n\003BUY\020\000\022\010\n\004SELL\020\001B\036\n\032tech.gbd" +
+      "evw.colibri.domainP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -162,49 +158,43 @@ public final class Domain {
     internal_static_tech_gbdevw_colibri_domain_SMA_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tech_gbdevw_colibri_domain_SMA_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Value", });
-    internal_static_tech_gbdevw_colibri_domain_EMA_descriptor =
+        new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod", "Value", });
+    internal_static_tech_gbdevw_colibri_domain_MAR_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_tech_gbdevw_colibri_domain_MAR_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tech_gbdevw_colibri_domain_MAR_descriptor,
+        new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod1", "XPeriod2", "XPeriod3", "Fast", "Medium", "Slow", });
+    internal_static_tech_gbdevw_colibri_domain_EMA_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_tech_gbdevw_colibri_domain_EMA_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tech_gbdevw_colibri_domain_EMA_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Value", });
-    internal_static_tech_gbdevw_colibri_domain_MACD_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_tech_gbdevw_colibri_domain_MACD_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_tech_gbdevw_colibri_domain_MACD_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Macd", "Signal", });
-    internal_static_tech_gbdevw_colibri_domain_KLO_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_tech_gbdevw_colibri_domain_KLO_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_tech_gbdevw_colibri_domain_KLO_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Klo", "Signal", });
+        new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod", "Value", });
     internal_static_tech_gbdevw_colibri_domain_ROC_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_tech_gbdevw_colibri_domain_ROC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tech_gbdevw_colibri_domain_ROC_descriptor,
         new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod", "Roc", "Resistance", "Support", });
-    internal_static_tech_gbdevw_colibri_domain_RSI_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_tech_gbdevw_colibri_domain_RSI_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_tech_gbdevw_colibri_domain_RSI_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Rsi", });
-    internal_static_tech_gbdevw_colibri_domain_MFI_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_tech_gbdevw_colibri_domain_MFI_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_tech_gbdevw_colibri_domain_MFI_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Mfi", });
     internal_static_tech_gbdevw_colibri_domain_BOL_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_tech_gbdevw_colibri_domain_BOL_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tech_gbdevw_colibri_domain_BOL_descriptor,
-        new java.lang.String[] { "Timestamp", "Unit", "Quote", "Bolu1", "Bolu2", "Bold1", "Bold2", });
+        new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod", "Bolu1", "Bolu2", "Bolu3", "Bolu4", "Bold1", "Bold2", "Bold3", "Bold4", });
+    internal_static_tech_gbdevw_colibri_domain_SSO_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_tech_gbdevw_colibri_domain_SSO_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tech_gbdevw_colibri_domain_SSO_descriptor,
+        new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod", "Value", });
+    internal_static_tech_gbdevw_colibri_domain_FSO_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_tech_gbdevw_colibri_domain_FSO_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tech_gbdevw_colibri_domain_FSO_descriptor,
+        new java.lang.String[] { "Timestamp", "Unit", "Quote", "XPeriod", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

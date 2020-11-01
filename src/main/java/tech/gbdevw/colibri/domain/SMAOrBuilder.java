@@ -36,7 +36,13 @@ public interface SMAOrBuilder extends
   tech.gbdevw.colibri.domain.Currency getQuote();
 
   /**
-   * <code>double value = 4;</code>
+   * <code>uint32 xPeriod = 4;</code>
+   * @return The xPeriod.
+   */
+  int getXPeriod();
+
+  /**
+   * <code>double value = 5;</code>
    * @return The value.
    */
   double getValue();

@@ -36,26 +36,56 @@ public interface BOLOrBuilder extends
   tech.gbdevw.colibri.domain.Currency getQuote();
 
   /**
-   * <code>double bolu1 = 4;</code>
+   * <code>uint32 xPeriod = 4;</code>
+   * @return The xPeriod.
+   */
+  int getXPeriod();
+
+  /**
+   * <code>double bolu1 = 5;</code>
    * @return The bolu1.
    */
   double getBolu1();
 
   /**
-   * <code>double bolu2 = 5;</code>
+   * <code>double bolu2 = 6;</code>
    * @return The bolu2.
    */
   double getBolu2();
 
   /**
-   * <code>double bold1 = 6;</code>
+   * <code>double bolu3 = 7;</code>
+   * @return The bolu3.
+   */
+  double getBolu3();
+
+  /**
+   * <code>double bolu4 = 8;</code>
+   * @return The bolu4.
+   */
+  double getBolu4();
+
+  /**
+   * <code>double bold1 = 9;</code>
    * @return The bold1.
    */
   double getBold1();
 
   /**
-   * <code>double bold2 = 7;</code>
+   * <code>double bold2 = 10;</code>
    * @return The bold2.
    */
   double getBold2();
+
+  /**
+   * <code>double bold3 = 11;</code>
+   * @return The bold3.
+   */
+  double getBold3();
+
+  /**
+   * <code>double bold4 = 12;</code>
+   * @return The bold4.
+   */
+  double getBold4();
 }

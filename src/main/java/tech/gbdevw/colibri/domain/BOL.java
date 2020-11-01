@@ -9,10 +9,15 @@ package tech.gbdevw.colibri.domain;
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to compute the indicator
  * bolu1 : Upper Bolinger band for 1 standard deviation
- * bolu2 : Upper Bolinger band for 2 standard deviations 
+ * bolu2 : Upper Bolinger band for 2 standard deviations
+ * bolu3 : Upper Bolinger band for 3 standard deviations
+ * bolu4 : Upper Bolinger band for 4 standard deviations  
  * bold1 : Lower Bolinger band for 1 standard deviation
- * bold2 : Lower Bolinger band for 2 standard deviations 
+ * bold2 : Lower Bolinger band for 2 standard deviations
+ * bold3 : Lower Bolinger band for 3 standard deviations
+ * bold4 : Lower Bolinger band for 4 standard deviations  
  * </pre>
  *
  * Protobuf type {@code tech.gbdevw.colibri.domain.BOL}
@@ -78,24 +83,49 @@ private static final long serialVersionUID = 0L;
             quote_ = rawValue;
             break;
           }
-          case 33: {
+          case 32: {
 
-            bolu1_ = input.readDouble();
+            xPeriod_ = input.readUInt32();
             break;
           }
           case 41: {
 
-            bolu2_ = input.readDouble();
+            bolu1_ = input.readDouble();
             break;
           }
           case 49: {
 
-            bold1_ = input.readDouble();
+            bolu2_ = input.readDouble();
             break;
           }
           case 57: {
 
+            bolu3_ = input.readDouble();
+            break;
+          }
+          case 65: {
+
+            bolu4_ = input.readDouble();
+            break;
+          }
+          case 73: {
+
+            bold1_ = input.readDouble();
+            break;
+          }
+          case 81: {
+
             bold2_ = input.readDouble();
+            break;
+          }
+          case 89: {
+
+            bold3_ = input.readDouble();
+            break;
+          }
+          case 97: {
+
+            bold4_ = input.readDouble();
             break;
           }
           default: {
@@ -178,44 +208,94 @@ private static final long serialVersionUID = 0L;
     return result == null ? tech.gbdevw.colibri.domain.Currency.UNRECOGNIZED : result;
   }
 
-  public static final int BOLU1_FIELD_NUMBER = 4;
+  public static final int XPERIOD_FIELD_NUMBER = 4;
+  private int xPeriod_;
+  /**
+   * <code>uint32 xPeriod = 4;</code>
+   * @return The xPeriod.
+   */
+  public int getXPeriod() {
+    return xPeriod_;
+  }
+
+  public static final int BOLU1_FIELD_NUMBER = 5;
   private double bolu1_;
   /**
-   * <code>double bolu1 = 4;</code>
+   * <code>double bolu1 = 5;</code>
    * @return The bolu1.
    */
   public double getBolu1() {
     return bolu1_;
   }
 
-  public static final int BOLU2_FIELD_NUMBER = 5;
+  public static final int BOLU2_FIELD_NUMBER = 6;
   private double bolu2_;
   /**
-   * <code>double bolu2 = 5;</code>
+   * <code>double bolu2 = 6;</code>
    * @return The bolu2.
    */
   public double getBolu2() {
     return bolu2_;
   }
 
-  public static final int BOLD1_FIELD_NUMBER = 6;
+  public static final int BOLU3_FIELD_NUMBER = 7;
+  private double bolu3_;
+  /**
+   * <code>double bolu3 = 7;</code>
+   * @return The bolu3.
+   */
+  public double getBolu3() {
+    return bolu3_;
+  }
+
+  public static final int BOLU4_FIELD_NUMBER = 8;
+  private double bolu4_;
+  /**
+   * <code>double bolu4 = 8;</code>
+   * @return The bolu4.
+   */
+  public double getBolu4() {
+    return bolu4_;
+  }
+
+  public static final int BOLD1_FIELD_NUMBER = 9;
   private double bold1_;
   /**
-   * <code>double bold1 = 6;</code>
+   * <code>double bold1 = 9;</code>
    * @return The bold1.
    */
   public double getBold1() {
     return bold1_;
   }
 
-  public static final int BOLD2_FIELD_NUMBER = 7;
+  public static final int BOLD2_FIELD_NUMBER = 10;
   private double bold2_;
   /**
-   * <code>double bold2 = 7;</code>
+   * <code>double bold2 = 10;</code>
    * @return The bold2.
    */
   public double getBold2() {
     return bold2_;
+  }
+
+  public static final int BOLD3_FIELD_NUMBER = 11;
+  private double bold3_;
+  /**
+   * <code>double bold3 = 11;</code>
+   * @return The bold3.
+   */
+  public double getBold3() {
+    return bold3_;
+  }
+
+  public static final int BOLD4_FIELD_NUMBER = 12;
+  private double bold4_;
+  /**
+   * <code>double bold4 = 12;</code>
+   * @return The bold4.
+   */
+  public double getBold4() {
+    return bold4_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -241,17 +321,32 @@ private static final long serialVersionUID = 0L;
     if (quote_ != tech.gbdevw.colibri.domain.Currency.EUR.getNumber()) {
       output.writeEnum(3, quote_);
     }
+    if (xPeriod_ != 0) {
+      output.writeUInt32(4, xPeriod_);
+    }
     if (bolu1_ != 0D) {
-      output.writeDouble(4, bolu1_);
+      output.writeDouble(5, bolu1_);
     }
     if (bolu2_ != 0D) {
-      output.writeDouble(5, bolu2_);
+      output.writeDouble(6, bolu2_);
+    }
+    if (bolu3_ != 0D) {
+      output.writeDouble(7, bolu3_);
+    }
+    if (bolu4_ != 0D) {
+      output.writeDouble(8, bolu4_);
     }
     if (bold1_ != 0D) {
-      output.writeDouble(6, bold1_);
+      output.writeDouble(9, bold1_);
     }
     if (bold2_ != 0D) {
-      output.writeDouble(7, bold2_);
+      output.writeDouble(10, bold2_);
+    }
+    if (bold3_ != 0D) {
+      output.writeDouble(11, bold3_);
+    }
+    if (bold4_ != 0D) {
+      output.writeDouble(12, bold4_);
     }
     unknownFields.writeTo(output);
   }
@@ -274,21 +369,41 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, quote_);
     }
+    if (xPeriod_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt32Size(4, xPeriod_);
+    }
     if (bolu1_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, bolu1_);
+        .computeDoubleSize(5, bolu1_);
     }
     if (bolu2_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(5, bolu2_);
+        .computeDoubleSize(6, bolu2_);
+    }
+    if (bolu3_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(7, bolu3_);
+    }
+    if (bolu4_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(8, bolu4_);
     }
     if (bold1_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(6, bold1_);
+        .computeDoubleSize(9, bold1_);
     }
     if (bold2_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(7, bold2_);
+        .computeDoubleSize(10, bold2_);
+    }
+    if (bold3_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(11, bold3_);
+    }
+    if (bold4_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(12, bold4_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -309,18 +424,32 @@ private static final long serialVersionUID = 0L;
         != other.getTimestamp()) return false;
     if (unit_ != other.unit_) return false;
     if (quote_ != other.quote_) return false;
+    if (getXPeriod()
+        != other.getXPeriod()) return false;
     if (java.lang.Double.doubleToLongBits(getBolu1())
         != java.lang.Double.doubleToLongBits(
             other.getBolu1())) return false;
     if (java.lang.Double.doubleToLongBits(getBolu2())
         != java.lang.Double.doubleToLongBits(
             other.getBolu2())) return false;
+    if (java.lang.Double.doubleToLongBits(getBolu3())
+        != java.lang.Double.doubleToLongBits(
+            other.getBolu3())) return false;
+    if (java.lang.Double.doubleToLongBits(getBolu4())
+        != java.lang.Double.doubleToLongBits(
+            other.getBolu4())) return false;
     if (java.lang.Double.doubleToLongBits(getBold1())
         != java.lang.Double.doubleToLongBits(
             other.getBold1())) return false;
     if (java.lang.Double.doubleToLongBits(getBold2())
         != java.lang.Double.doubleToLongBits(
             other.getBold2())) return false;
+    if (java.lang.Double.doubleToLongBits(getBold3())
+        != java.lang.Double.doubleToLongBits(
+            other.getBold3())) return false;
+    if (java.lang.Double.doubleToLongBits(getBold4())
+        != java.lang.Double.doubleToLongBits(
+            other.getBold4())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -339,18 +468,32 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + unit_;
     hash = (37 * hash) + QUOTE_FIELD_NUMBER;
     hash = (53 * hash) + quote_;
+    hash = (37 * hash) + XPERIOD_FIELD_NUMBER;
+    hash = (53 * hash) + getXPeriod();
     hash = (37 * hash) + BOLU1_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getBolu1()));
     hash = (37 * hash) + BOLU2_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getBolu2()));
+    hash = (37 * hash) + BOLU3_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getBolu3()));
+    hash = (37 * hash) + BOLU4_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getBolu4()));
     hash = (37 * hash) + BOLD1_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getBold1()));
     hash = (37 * hash) + BOLD2_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getBold2()));
+    hash = (37 * hash) + BOLD3_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getBold3()));
+    hash = (37 * hash) + BOLD4_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getBold4()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -452,10 +595,15 @@ private static final long serialVersionUID = 0L;
    * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
    * unit : Unit Currency (Ex : BTC, ETH)
    * quote : Quote Currency (Ex : EUR, USD)
+   * xPeriod : Number of periods used to compute the indicator
    * bolu1 : Upper Bolinger band for 1 standard deviation
-   * bolu2 : Upper Bolinger band for 2 standard deviations 
+   * bolu2 : Upper Bolinger band for 2 standard deviations
+   * bolu3 : Upper Bolinger band for 3 standard deviations
+   * bolu4 : Upper Bolinger band for 4 standard deviations  
    * bold1 : Lower Bolinger band for 1 standard deviation
-   * bold2 : Lower Bolinger band for 2 standard deviations 
+   * bold2 : Lower Bolinger band for 2 standard deviations
+   * bold3 : Lower Bolinger band for 3 standard deviations
+   * bold4 : Lower Bolinger band for 4 standard deviations  
    * </pre>
    *
    * Protobuf type {@code tech.gbdevw.colibri.domain.BOL}
@@ -501,13 +649,23 @@ private static final long serialVersionUID = 0L;
 
       quote_ = 0;
 
+      xPeriod_ = 0;
+
       bolu1_ = 0D;
 
       bolu2_ = 0D;
 
+      bolu3_ = 0D;
+
+      bolu4_ = 0D;
+
       bold1_ = 0D;
 
       bold2_ = 0D;
+
+      bold3_ = 0D;
+
+      bold4_ = 0D;
 
       return this;
     }
@@ -538,10 +696,15 @@ private static final long serialVersionUID = 0L;
       result.timestamp_ = timestamp_;
       result.unit_ = unit_;
       result.quote_ = quote_;
+      result.xPeriod_ = xPeriod_;
       result.bolu1_ = bolu1_;
       result.bolu2_ = bolu2_;
+      result.bolu3_ = bolu3_;
+      result.bolu4_ = bolu4_;
       result.bold1_ = bold1_;
       result.bold2_ = bold2_;
+      result.bold3_ = bold3_;
+      result.bold4_ = bold4_;
       onBuilt();
       return result;
     }
@@ -599,17 +762,32 @@ private static final long serialVersionUID = 0L;
       if (other.quote_ != 0) {
         setQuoteValue(other.getQuoteValue());
       }
+      if (other.getXPeriod() != 0) {
+        setXPeriod(other.getXPeriod());
+      }
       if (other.getBolu1() != 0D) {
         setBolu1(other.getBolu1());
       }
       if (other.getBolu2() != 0D) {
         setBolu2(other.getBolu2());
       }
+      if (other.getBolu3() != 0D) {
+        setBolu3(other.getBolu3());
+      }
+      if (other.getBolu4() != 0D) {
+        setBolu4(other.getBolu4());
+      }
       if (other.getBold1() != 0D) {
         setBold1(other.getBold1());
       }
       if (other.getBold2() != 0D) {
         setBold2(other.getBold2());
+      }
+      if (other.getBold3() != 0D) {
+        setBold3(other.getBold3());
+      }
+      if (other.getBold4() != 0D) {
+        setBold4(other.getBold4());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -774,16 +952,46 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int xPeriod_ ;
+    /**
+     * <code>uint32 xPeriod = 4;</code>
+     * @return The xPeriod.
+     */
+    public int getXPeriod() {
+      return xPeriod_;
+    }
+    /**
+     * <code>uint32 xPeriod = 4;</code>
+     * @param value The xPeriod to set.
+     * @return This builder for chaining.
+     */
+    public Builder setXPeriod(int value) {
+      
+      xPeriod_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint32 xPeriod = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearXPeriod() {
+      
+      xPeriod_ = 0;
+      onChanged();
+      return this;
+    }
+
     private double bolu1_ ;
     /**
-     * <code>double bolu1 = 4;</code>
+     * <code>double bolu1 = 5;</code>
      * @return The bolu1.
      */
     public double getBolu1() {
       return bolu1_;
     }
     /**
-     * <code>double bolu1 = 4;</code>
+     * <code>double bolu1 = 5;</code>
      * @param value The bolu1 to set.
      * @return This builder for chaining.
      */
@@ -794,7 +1002,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double bolu1 = 4;</code>
+     * <code>double bolu1 = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearBolu1() {
@@ -806,14 +1014,14 @@ private static final long serialVersionUID = 0L;
 
     private double bolu2_ ;
     /**
-     * <code>double bolu2 = 5;</code>
+     * <code>double bolu2 = 6;</code>
      * @return The bolu2.
      */
     public double getBolu2() {
       return bolu2_;
     }
     /**
-     * <code>double bolu2 = 5;</code>
+     * <code>double bolu2 = 6;</code>
      * @param value The bolu2 to set.
      * @return This builder for chaining.
      */
@@ -824,7 +1032,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double bolu2 = 5;</code>
+     * <code>double bolu2 = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearBolu2() {
@@ -834,16 +1042,76 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private double bolu3_ ;
+    /**
+     * <code>double bolu3 = 7;</code>
+     * @return The bolu3.
+     */
+    public double getBolu3() {
+      return bolu3_;
+    }
+    /**
+     * <code>double bolu3 = 7;</code>
+     * @param value The bolu3 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBolu3(double value) {
+      
+      bolu3_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double bolu3 = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBolu3() {
+      
+      bolu3_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double bolu4_ ;
+    /**
+     * <code>double bolu4 = 8;</code>
+     * @return The bolu4.
+     */
+    public double getBolu4() {
+      return bolu4_;
+    }
+    /**
+     * <code>double bolu4 = 8;</code>
+     * @param value The bolu4 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBolu4(double value) {
+      
+      bolu4_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double bolu4 = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBolu4() {
+      
+      bolu4_ = 0D;
+      onChanged();
+      return this;
+    }
+
     private double bold1_ ;
     /**
-     * <code>double bold1 = 6;</code>
+     * <code>double bold1 = 9;</code>
      * @return The bold1.
      */
     public double getBold1() {
       return bold1_;
     }
     /**
-     * <code>double bold1 = 6;</code>
+     * <code>double bold1 = 9;</code>
      * @param value The bold1 to set.
      * @return This builder for chaining.
      */
@@ -854,7 +1122,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double bold1 = 6;</code>
+     * <code>double bold1 = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearBold1() {
@@ -866,14 +1134,14 @@ private static final long serialVersionUID = 0L;
 
     private double bold2_ ;
     /**
-     * <code>double bold2 = 7;</code>
+     * <code>double bold2 = 10;</code>
      * @return The bold2.
      */
     public double getBold2() {
       return bold2_;
     }
     /**
-     * <code>double bold2 = 7;</code>
+     * <code>double bold2 = 10;</code>
      * @param value The bold2 to set.
      * @return This builder for chaining.
      */
@@ -884,12 +1152,72 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double bold2 = 7;</code>
+     * <code>double bold2 = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearBold2() {
       
       bold2_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double bold3_ ;
+    /**
+     * <code>double bold3 = 11;</code>
+     * @return The bold3.
+     */
+    public double getBold3() {
+      return bold3_;
+    }
+    /**
+     * <code>double bold3 = 11;</code>
+     * @param value The bold3 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBold3(double value) {
+      
+      bold3_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double bold3 = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBold3() {
+      
+      bold3_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double bold4_ ;
+    /**
+     * <code>double bold4 = 12;</code>
+     * @return The bold4.
+     */
+    public double getBold4() {
+      return bold4_;
+    }
+    /**
+     * <code>double bold4 = 12;</code>
+     * @param value The bold4 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBold4(double value) {
+      
+      bold4_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double bold4 = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBold4() {
+      
+      bold4_ = 0D;
       onChanged();
       return this;
     }

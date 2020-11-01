@@ -42,19 +42,19 @@ public interface ROCOrBuilder extends
   int getXPeriod();
 
   /**
-   * <code>double roc = 6;</code>
+   * <code>double roc = 5;</code>
    * @return The roc.
    */
   double getRoc();
 
   /**
-   * <code>double resistance = 7;</code>
+   * <code>double resistance = 6;</code>
    * @return The resistance.
    */
   double getResistance();
 
   /**
-   * <code>double support = 8;</code>
+   * <code>double support = 7;</code>
    * @return The support.
    */
   double getSupport();

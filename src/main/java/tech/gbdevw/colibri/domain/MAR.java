@@ -5,28 +5,30 @@ package tech.gbdevw.colibri.domain;
 
 /**
  * <pre>
- * Rate Of Change
+ * Moving Average Ribbon
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
- * xPeriod : Number of periods used to produce the indicator
- * roc : ROC value for the period (decimal, 0.01 stands for 1%)
- * resistance : Maximal closing price in quote Currency for one unit of unit Currency for the period
- * support : Minimal closing price in quote Currency for one unit of unit Currency for the period
+ * xPeriod1 : Number of periods used to compute the fast SMA (ex : 5)
+ * xPeriod2 : Number of periods used to compute the medium SMA (ex : 8)
+ * xPeriod3 : Number of periods used to compute the slow SMA (ex: 13)
+ * fast : Value of the fast SMA
+ * medium : Value of the medium SMA
+ * slow : Value of the slow SMA
  * </pre>
  *
- * Protobuf type {@code tech.gbdevw.colibri.domain.ROC}
+ * Protobuf type {@code tech.gbdevw.colibri.domain.MAR}
  */
-public  final class ROC extends
+public  final class MAR extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:tech.gbdevw.colibri.domain.ROC)
-    ROCOrBuilder {
+    // @@protoc_insertion_point(message_implements:tech.gbdevw.colibri.domain.MAR)
+    MAROrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ROC.newBuilder() to construct.
-  private ROC(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use MAR.newBuilder() to construct.
+  private MAR(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ROC() {
+  private MAR() {
     unit_ = 0;
     quote_ = 0;
   }
@@ -35,7 +37,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ROC();
+    return new MAR();
   }
 
   @java.lang.Override
@@ -43,7 +45,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ROC(
+  private MAR(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -80,22 +82,32 @@ private static final long serialVersionUID = 0L;
           }
           case 32: {
 
-            xPeriod_ = input.readUInt32();
+            xPeriod1_ = input.readUInt32();
             break;
           }
-          case 41: {
+          case 40: {
 
-            roc_ = input.readDouble();
+            xPeriod2_ = input.readUInt32();
             break;
           }
-          case 49: {
+          case 48: {
 
-            resistance_ = input.readDouble();
+            xPeriod3_ = input.readUInt32();
             break;
           }
           case 57: {
 
-            support_ = input.readDouble();
+            fast_ = input.readDouble();
+            break;
+          }
+          case 65: {
+
+            medium_ = input.readDouble();
+            break;
+          }
+          case 73: {
+
+            slow_ = input.readDouble();
             break;
           }
           default: {
@@ -119,15 +131,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_ROC_descriptor;
+    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_MAR_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_ROC_fieldAccessorTable
+    return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_MAR_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            tech.gbdevw.colibri.domain.ROC.class, tech.gbdevw.colibri.domain.ROC.Builder.class);
+            tech.gbdevw.colibri.domain.MAR.class, tech.gbdevw.colibri.domain.MAR.Builder.class);
   }
 
   public static final int TIMESTAMP_FIELD_NUMBER = 1;
@@ -178,44 +190,64 @@ private static final long serialVersionUID = 0L;
     return result == null ? tech.gbdevw.colibri.domain.Currency.UNRECOGNIZED : result;
   }
 
-  public static final int XPERIOD_FIELD_NUMBER = 4;
-  private int xPeriod_;
+  public static final int XPERIOD1_FIELD_NUMBER = 4;
+  private int xPeriod1_;
   /**
-   * <code>uint32 xPeriod = 4;</code>
-   * @return The xPeriod.
+   * <code>uint32 xPeriod1 = 4;</code>
+   * @return The xPeriod1.
    */
-  public int getXPeriod() {
-    return xPeriod_;
+  public int getXPeriod1() {
+    return xPeriod1_;
   }
 
-  public static final int ROC_FIELD_NUMBER = 5;
-  private double roc_;
+  public static final int XPERIOD2_FIELD_NUMBER = 5;
+  private int xPeriod2_;
   /**
-   * <code>double roc = 5;</code>
-   * @return The roc.
+   * <code>uint32 xPeriod2 = 5;</code>
+   * @return The xPeriod2.
    */
-  public double getRoc() {
-    return roc_;
+  public int getXPeriod2() {
+    return xPeriod2_;
   }
 
-  public static final int RESISTANCE_FIELD_NUMBER = 6;
-  private double resistance_;
+  public static final int XPERIOD3_FIELD_NUMBER = 6;
+  private int xPeriod3_;
   /**
-   * <code>double resistance = 6;</code>
-   * @return The resistance.
+   * <code>uint32 xPeriod3 = 6;</code>
+   * @return The xPeriod3.
    */
-  public double getResistance() {
-    return resistance_;
+  public int getXPeriod3() {
+    return xPeriod3_;
   }
 
-  public static final int SUPPORT_FIELD_NUMBER = 7;
-  private double support_;
+  public static final int FAST_FIELD_NUMBER = 7;
+  private double fast_;
   /**
-   * <code>double support = 7;</code>
-   * @return The support.
+   * <code>double fast = 7;</code>
+   * @return The fast.
    */
-  public double getSupport() {
-    return support_;
+  public double getFast() {
+    return fast_;
+  }
+
+  public static final int MEDIUM_FIELD_NUMBER = 8;
+  private double medium_;
+  /**
+   * <code>double medium = 8;</code>
+   * @return The medium.
+   */
+  public double getMedium() {
+    return medium_;
+  }
+
+  public static final int SLOW_FIELD_NUMBER = 9;
+  private double slow_;
+  /**
+   * <code>double slow = 9;</code>
+   * @return The slow.
+   */
+  public double getSlow() {
+    return slow_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -241,17 +273,23 @@ private static final long serialVersionUID = 0L;
     if (quote_ != tech.gbdevw.colibri.domain.Currency.EUR.getNumber()) {
       output.writeEnum(3, quote_);
     }
-    if (xPeriod_ != 0) {
-      output.writeUInt32(4, xPeriod_);
+    if (xPeriod1_ != 0) {
+      output.writeUInt32(4, xPeriod1_);
     }
-    if (roc_ != 0D) {
-      output.writeDouble(5, roc_);
+    if (xPeriod2_ != 0) {
+      output.writeUInt32(5, xPeriod2_);
     }
-    if (resistance_ != 0D) {
-      output.writeDouble(6, resistance_);
+    if (xPeriod3_ != 0) {
+      output.writeUInt32(6, xPeriod3_);
     }
-    if (support_ != 0D) {
-      output.writeDouble(7, support_);
+    if (fast_ != 0D) {
+      output.writeDouble(7, fast_);
+    }
+    if (medium_ != 0D) {
+      output.writeDouble(8, medium_);
+    }
+    if (slow_ != 0D) {
+      output.writeDouble(9, slow_);
     }
     unknownFields.writeTo(output);
   }
@@ -274,21 +312,29 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, quote_);
     }
-    if (xPeriod_ != 0) {
+    if (xPeriod1_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(4, xPeriod_);
+        .computeUInt32Size(4, xPeriod1_);
     }
-    if (roc_ != 0D) {
+    if (xPeriod2_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(5, roc_);
+        .computeUInt32Size(5, xPeriod2_);
     }
-    if (resistance_ != 0D) {
+    if (xPeriod3_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(6, resistance_);
+        .computeUInt32Size(6, xPeriod3_);
     }
-    if (support_ != 0D) {
+    if (fast_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(7, support_);
+        .computeDoubleSize(7, fast_);
+    }
+    if (medium_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(8, medium_);
+    }
+    if (slow_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(9, slow_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -300,26 +346,30 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof tech.gbdevw.colibri.domain.ROC)) {
+    if (!(obj instanceof tech.gbdevw.colibri.domain.MAR)) {
       return super.equals(obj);
     }
-    tech.gbdevw.colibri.domain.ROC other = (tech.gbdevw.colibri.domain.ROC) obj;
+    tech.gbdevw.colibri.domain.MAR other = (tech.gbdevw.colibri.domain.MAR) obj;
 
     if (getTimestamp()
         != other.getTimestamp()) return false;
     if (unit_ != other.unit_) return false;
     if (quote_ != other.quote_) return false;
-    if (getXPeriod()
-        != other.getXPeriod()) return false;
-    if (java.lang.Double.doubleToLongBits(getRoc())
+    if (getXPeriod1()
+        != other.getXPeriod1()) return false;
+    if (getXPeriod2()
+        != other.getXPeriod2()) return false;
+    if (getXPeriod3()
+        != other.getXPeriod3()) return false;
+    if (java.lang.Double.doubleToLongBits(getFast())
         != java.lang.Double.doubleToLongBits(
-            other.getRoc())) return false;
-    if (java.lang.Double.doubleToLongBits(getResistance())
+            other.getFast())) return false;
+    if (java.lang.Double.doubleToLongBits(getMedium())
         != java.lang.Double.doubleToLongBits(
-            other.getResistance())) return false;
-    if (java.lang.Double.doubleToLongBits(getSupport())
+            other.getMedium())) return false;
+    if (java.lang.Double.doubleToLongBits(getSlow())
         != java.lang.Double.doubleToLongBits(
-            other.getSupport())) return false;
+            other.getSlow())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -338,85 +388,89 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + unit_;
     hash = (37 * hash) + QUOTE_FIELD_NUMBER;
     hash = (53 * hash) + quote_;
-    hash = (37 * hash) + XPERIOD_FIELD_NUMBER;
-    hash = (53 * hash) + getXPeriod();
-    hash = (37 * hash) + ROC_FIELD_NUMBER;
+    hash = (37 * hash) + XPERIOD1_FIELD_NUMBER;
+    hash = (53 * hash) + getXPeriod1();
+    hash = (37 * hash) + XPERIOD2_FIELD_NUMBER;
+    hash = (53 * hash) + getXPeriod2();
+    hash = (37 * hash) + XPERIOD3_FIELD_NUMBER;
+    hash = (53 * hash) + getXPeriod3();
+    hash = (37 * hash) + FAST_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getRoc()));
-    hash = (37 * hash) + RESISTANCE_FIELD_NUMBER;
+        java.lang.Double.doubleToLongBits(getFast()));
+    hash = (37 * hash) + MEDIUM_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getResistance()));
-    hash = (37 * hash) + SUPPORT_FIELD_NUMBER;
+        java.lang.Double.doubleToLongBits(getMedium()));
+    hash = (37 * hash) + SLOW_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getSupport()));
+        java.lang.Double.doubleToLongBits(getSlow()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(byte[] data)
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(java.io.InputStream input)
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseDelimitedFrom(java.io.InputStream input)
+  public static tech.gbdevw.colibri.domain.MAR parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseDelimitedFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static tech.gbdevw.colibri.domain.ROC parseFrom(
+  public static tech.gbdevw.colibri.domain.MAR parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -429,7 +483,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(tech.gbdevw.colibri.domain.ROC prototype) {
+  public static Builder newBuilder(tech.gbdevw.colibri.domain.MAR prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -446,36 +500,38 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Rate Of Change
+   * Moving Average Ribbon
    * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
    * unit : Unit Currency (Ex : BTC, ETH)
    * quote : Quote Currency (Ex : EUR, USD)
-   * xPeriod : Number of periods used to produce the indicator
-   * roc : ROC value for the period (decimal, 0.01 stands for 1%)
-   * resistance : Maximal closing price in quote Currency for one unit of unit Currency for the period
-   * support : Minimal closing price in quote Currency for one unit of unit Currency for the period
+   * xPeriod1 : Number of periods used to compute the fast SMA (ex : 5)
+   * xPeriod2 : Number of periods used to compute the medium SMA (ex : 8)
+   * xPeriod3 : Number of periods used to compute the slow SMA (ex: 13)
+   * fast : Value of the fast SMA
+   * medium : Value of the medium SMA
+   * slow : Value of the slow SMA
    * </pre>
    *
-   * Protobuf type {@code tech.gbdevw.colibri.domain.ROC}
+   * Protobuf type {@code tech.gbdevw.colibri.domain.MAR}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:tech.gbdevw.colibri.domain.ROC)
-      tech.gbdevw.colibri.domain.ROCOrBuilder {
+      // @@protoc_insertion_point(builder_implements:tech.gbdevw.colibri.domain.MAR)
+      tech.gbdevw.colibri.domain.MAROrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_ROC_descriptor;
+      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_MAR_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_ROC_fieldAccessorTable
+      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_MAR_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              tech.gbdevw.colibri.domain.ROC.class, tech.gbdevw.colibri.domain.ROC.Builder.class);
+              tech.gbdevw.colibri.domain.MAR.class, tech.gbdevw.colibri.domain.MAR.Builder.class);
     }
 
-    // Construct using tech.gbdevw.colibri.domain.ROC.newBuilder()
+    // Construct using tech.gbdevw.colibri.domain.MAR.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -499,13 +555,17 @@ private static final long serialVersionUID = 0L;
 
       quote_ = 0;
 
-      xPeriod_ = 0;
+      xPeriod1_ = 0;
 
-      roc_ = 0D;
+      xPeriod2_ = 0;
 
-      resistance_ = 0D;
+      xPeriod3_ = 0;
 
-      support_ = 0D;
+      fast_ = 0D;
+
+      medium_ = 0D;
+
+      slow_ = 0D;
 
       return this;
     }
@@ -513,17 +573,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_ROC_descriptor;
+      return tech.gbdevw.colibri.domain.Domain.internal_static_tech_gbdevw_colibri_domain_MAR_descriptor;
     }
 
     @java.lang.Override
-    public tech.gbdevw.colibri.domain.ROC getDefaultInstanceForType() {
-      return tech.gbdevw.colibri.domain.ROC.getDefaultInstance();
+    public tech.gbdevw.colibri.domain.MAR getDefaultInstanceForType() {
+      return tech.gbdevw.colibri.domain.MAR.getDefaultInstance();
     }
 
     @java.lang.Override
-    public tech.gbdevw.colibri.domain.ROC build() {
-      tech.gbdevw.colibri.domain.ROC result = buildPartial();
+    public tech.gbdevw.colibri.domain.MAR build() {
+      tech.gbdevw.colibri.domain.MAR result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -531,15 +591,17 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public tech.gbdevw.colibri.domain.ROC buildPartial() {
-      tech.gbdevw.colibri.domain.ROC result = new tech.gbdevw.colibri.domain.ROC(this);
+    public tech.gbdevw.colibri.domain.MAR buildPartial() {
+      tech.gbdevw.colibri.domain.MAR result = new tech.gbdevw.colibri.domain.MAR(this);
       result.timestamp_ = timestamp_;
       result.unit_ = unit_;
       result.quote_ = quote_;
-      result.xPeriod_ = xPeriod_;
-      result.roc_ = roc_;
-      result.resistance_ = resistance_;
-      result.support_ = support_;
+      result.xPeriod1_ = xPeriod1_;
+      result.xPeriod2_ = xPeriod2_;
+      result.xPeriod3_ = xPeriod3_;
+      result.fast_ = fast_;
+      result.medium_ = medium_;
+      result.slow_ = slow_;
       onBuilt();
       return result;
     }
@@ -578,16 +640,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof tech.gbdevw.colibri.domain.ROC) {
-        return mergeFrom((tech.gbdevw.colibri.domain.ROC)other);
+      if (other instanceof tech.gbdevw.colibri.domain.MAR) {
+        return mergeFrom((tech.gbdevw.colibri.domain.MAR)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(tech.gbdevw.colibri.domain.ROC other) {
-      if (other == tech.gbdevw.colibri.domain.ROC.getDefaultInstance()) return this;
+    public Builder mergeFrom(tech.gbdevw.colibri.domain.MAR other) {
+      if (other == tech.gbdevw.colibri.domain.MAR.getDefaultInstance()) return this;
       if (other.getTimestamp() != 0L) {
         setTimestamp(other.getTimestamp());
       }
@@ -597,17 +659,23 @@ private static final long serialVersionUID = 0L;
       if (other.quote_ != 0) {
         setQuoteValue(other.getQuoteValue());
       }
-      if (other.getXPeriod() != 0) {
-        setXPeriod(other.getXPeriod());
+      if (other.getXPeriod1() != 0) {
+        setXPeriod1(other.getXPeriod1());
       }
-      if (other.getRoc() != 0D) {
-        setRoc(other.getRoc());
+      if (other.getXPeriod2() != 0) {
+        setXPeriod2(other.getXPeriod2());
       }
-      if (other.getResistance() != 0D) {
-        setResistance(other.getResistance());
+      if (other.getXPeriod3() != 0) {
+        setXPeriod3(other.getXPeriod3());
       }
-      if (other.getSupport() != 0D) {
-        setSupport(other.getSupport());
+      if (other.getFast() != 0D) {
+        setFast(other.getFast());
+      }
+      if (other.getMedium() != 0D) {
+        setMedium(other.getMedium());
+      }
+      if (other.getSlow() != 0D) {
+        setSlow(other.getSlow());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -624,11 +692,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      tech.gbdevw.colibri.domain.ROC parsedMessage = null;
+      tech.gbdevw.colibri.domain.MAR parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (tech.gbdevw.colibri.domain.ROC) e.getUnfinishedMessage();
+        parsedMessage = (tech.gbdevw.colibri.domain.MAR) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -772,122 +840,182 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int xPeriod_ ;
+    private int xPeriod1_ ;
     /**
-     * <code>uint32 xPeriod = 4;</code>
-     * @return The xPeriod.
+     * <code>uint32 xPeriod1 = 4;</code>
+     * @return The xPeriod1.
      */
-    public int getXPeriod() {
-      return xPeriod_;
+    public int getXPeriod1() {
+      return xPeriod1_;
     }
     /**
-     * <code>uint32 xPeriod = 4;</code>
-     * @param value The xPeriod to set.
+     * <code>uint32 xPeriod1 = 4;</code>
+     * @param value The xPeriod1 to set.
      * @return This builder for chaining.
      */
-    public Builder setXPeriod(int value) {
+    public Builder setXPeriod1(int value) {
       
-      xPeriod_ = value;
+      xPeriod1_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint32 xPeriod = 4;</code>
+     * <code>uint32 xPeriod1 = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearXPeriod() {
+    public Builder clearXPeriod1() {
       
-      xPeriod_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private double roc_ ;
-    /**
-     * <code>double roc = 5;</code>
-     * @return The roc.
-     */
-    public double getRoc() {
-      return roc_;
-    }
-    /**
-     * <code>double roc = 5;</code>
-     * @param value The roc to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRoc(double value) {
-      
-      roc_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double roc = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRoc() {
-      
-      roc_ = 0D;
+      xPeriod1_ = 0;
       onChanged();
       return this;
     }
 
-    private double resistance_ ;
+    private int xPeriod2_ ;
     /**
-     * <code>double resistance = 6;</code>
-     * @return The resistance.
+     * <code>uint32 xPeriod2 = 5;</code>
+     * @return The xPeriod2.
      */
-    public double getResistance() {
-      return resistance_;
+    public int getXPeriod2() {
+      return xPeriod2_;
     }
     /**
-     * <code>double resistance = 6;</code>
-     * @param value The resistance to set.
+     * <code>uint32 xPeriod2 = 5;</code>
+     * @param value The xPeriod2 to set.
      * @return This builder for chaining.
      */
-    public Builder setResistance(double value) {
+    public Builder setXPeriod2(int value) {
       
-      resistance_ = value;
+      xPeriod2_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double resistance = 6;</code>
+     * <code>uint32 xPeriod2 = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearResistance() {
+    public Builder clearXPeriod2() {
       
-      resistance_ = 0D;
+      xPeriod2_ = 0;
       onChanged();
       return this;
     }
 
-    private double support_ ;
+    private int xPeriod3_ ;
     /**
-     * <code>double support = 7;</code>
-     * @return The support.
+     * <code>uint32 xPeriod3 = 6;</code>
+     * @return The xPeriod3.
      */
-    public double getSupport() {
-      return support_;
+    public int getXPeriod3() {
+      return xPeriod3_;
     }
     /**
-     * <code>double support = 7;</code>
-     * @param value The support to set.
+     * <code>uint32 xPeriod3 = 6;</code>
+     * @param value The xPeriod3 to set.
      * @return This builder for chaining.
      */
-    public Builder setSupport(double value) {
+    public Builder setXPeriod3(int value) {
       
-      support_ = value;
+      xPeriod3_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double support = 7;</code>
+     * <code>uint32 xPeriod3 = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSupport() {
+    public Builder clearXPeriod3() {
       
-      support_ = 0D;
+      xPeriod3_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private double fast_ ;
+    /**
+     * <code>double fast = 7;</code>
+     * @return The fast.
+     */
+    public double getFast() {
+      return fast_;
+    }
+    /**
+     * <code>double fast = 7;</code>
+     * @param value The fast to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFast(double value) {
+      
+      fast_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double fast = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFast() {
+      
+      fast_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double medium_ ;
+    /**
+     * <code>double medium = 8;</code>
+     * @return The medium.
+     */
+    public double getMedium() {
+      return medium_;
+    }
+    /**
+     * <code>double medium = 8;</code>
+     * @param value The medium to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMedium(double value) {
+      
+      medium_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double medium = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMedium() {
+      
+      medium_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double slow_ ;
+    /**
+     * <code>double slow = 9;</code>
+     * @return The slow.
+     */
+    public double getSlow() {
+      return slow_;
+    }
+    /**
+     * <code>double slow = 9;</code>
+     * @param value The slow to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSlow(double value) {
+      
+      slow_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double slow = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSlow() {
+      
+      slow_ = 0D;
       onChanged();
       return this;
     }
@@ -904,41 +1032,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:tech.gbdevw.colibri.domain.ROC)
+    // @@protoc_insertion_point(builder_scope:tech.gbdevw.colibri.domain.MAR)
   }
 
-  // @@protoc_insertion_point(class_scope:tech.gbdevw.colibri.domain.ROC)
-  private static final tech.gbdevw.colibri.domain.ROC DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:tech.gbdevw.colibri.domain.MAR)
+  private static final tech.gbdevw.colibri.domain.MAR DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new tech.gbdevw.colibri.domain.ROC();
+    DEFAULT_INSTANCE = new tech.gbdevw.colibri.domain.MAR();
   }
 
-  public static tech.gbdevw.colibri.domain.ROC getDefaultInstance() {
+  public static tech.gbdevw.colibri.domain.MAR getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ROC>
-      PARSER = new com.google.protobuf.AbstractParser<ROC>() {
+  private static final com.google.protobuf.Parser<MAR>
+      PARSER = new com.google.protobuf.AbstractParser<MAR>() {
     @java.lang.Override
-    public ROC parsePartialFrom(
+    public MAR parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ROC(input, extensionRegistry);
+      return new MAR(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ROC> parser() {
+  public static com.google.protobuf.Parser<MAR> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ROC> getParserForType() {
+  public com.google.protobuf.Parser<MAR> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public tech.gbdevw.colibri.domain.ROC getDefaultInstanceForType() {
+  public tech.gbdevw.colibri.domain.MAR getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

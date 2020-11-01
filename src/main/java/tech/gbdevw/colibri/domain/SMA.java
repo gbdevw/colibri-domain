@@ -9,6 +9,7 @@ package tech.gbdevw.colibri.domain;
  * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
  * unit : Unit Currency (Ex : BTC, ETH)
  * quote : Quote Currency (Ex : EUR, USD)
+ * xPeriod : Number of periods used to compute the indicator
  * value : Value of the indicator
  * </pre>
  *
@@ -75,7 +76,12 @@ private static final long serialVersionUID = 0L;
             quote_ = rawValue;
             break;
           }
-          case 33: {
+          case 32: {
+
+            xPeriod_ = input.readUInt32();
+            break;
+          }
+          case 41: {
 
             value_ = input.readDouble();
             break;
@@ -160,10 +166,20 @@ private static final long serialVersionUID = 0L;
     return result == null ? tech.gbdevw.colibri.domain.Currency.UNRECOGNIZED : result;
   }
 
-  public static final int VALUE_FIELD_NUMBER = 4;
+  public static final int XPERIOD_FIELD_NUMBER = 4;
+  private int xPeriod_;
+  /**
+   * <code>uint32 xPeriod = 4;</code>
+   * @return The xPeriod.
+   */
+  public int getXPeriod() {
+    return xPeriod_;
+  }
+
+  public static final int VALUE_FIELD_NUMBER = 5;
   private double value_;
   /**
-   * <code>double value = 4;</code>
+   * <code>double value = 5;</code>
    * @return The value.
    */
   public double getValue() {
@@ -193,8 +209,11 @@ private static final long serialVersionUID = 0L;
     if (quote_ != tech.gbdevw.colibri.domain.Currency.EUR.getNumber()) {
       output.writeEnum(3, quote_);
     }
+    if (xPeriod_ != 0) {
+      output.writeUInt32(4, xPeriod_);
+    }
     if (value_ != 0D) {
-      output.writeDouble(4, value_);
+      output.writeDouble(5, value_);
     }
     unknownFields.writeTo(output);
   }
@@ -217,9 +236,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, quote_);
     }
+    if (xPeriod_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt32Size(4, xPeriod_);
+    }
     if (value_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, value_);
+        .computeDoubleSize(5, value_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -240,6 +263,8 @@ private static final long serialVersionUID = 0L;
         != other.getTimestamp()) return false;
     if (unit_ != other.unit_) return false;
     if (quote_ != other.quote_) return false;
+    if (getXPeriod()
+        != other.getXPeriod()) return false;
     if (java.lang.Double.doubleToLongBits(getValue())
         != java.lang.Double.doubleToLongBits(
             other.getValue())) return false;
@@ -261,6 +286,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + unit_;
     hash = (37 * hash) + QUOTE_FIELD_NUMBER;
     hash = (53 * hash) + quote_;
+    hash = (37 * hash) + XPERIOD_FIELD_NUMBER;
+    hash = (53 * hash) + getXPeriod();
     hash = (37 * hash) + VALUE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getValue()));
@@ -365,6 +392,7 @@ private static final long serialVersionUID = 0L;
    * timestamp : The number of milliseconds from the epoch of 1970-01-01T00:00:00Z. - When the indicator is produced
    * unit : Unit Currency (Ex : BTC, ETH)
    * quote : Quote Currency (Ex : EUR, USD)
+   * xPeriod : Number of periods used to compute the indicator
    * value : Value of the indicator
    * </pre>
    *
@@ -411,6 +439,8 @@ private static final long serialVersionUID = 0L;
 
       quote_ = 0;
 
+      xPeriod_ = 0;
+
       value_ = 0D;
 
       return this;
@@ -442,6 +472,7 @@ private static final long serialVersionUID = 0L;
       result.timestamp_ = timestamp_;
       result.unit_ = unit_;
       result.quote_ = quote_;
+      result.xPeriod_ = xPeriod_;
       result.value_ = value_;
       onBuilt();
       return result;
@@ -499,6 +530,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.quote_ != 0) {
         setQuoteValue(other.getQuoteValue());
+      }
+      if (other.getXPeriod() != 0) {
+        setXPeriod(other.getXPeriod());
       }
       if (other.getValue() != 0D) {
         setValue(other.getValue());
@@ -666,16 +700,46 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int xPeriod_ ;
+    /**
+     * <code>uint32 xPeriod = 4;</code>
+     * @return The xPeriod.
+     */
+    public int getXPeriod() {
+      return xPeriod_;
+    }
+    /**
+     * <code>uint32 xPeriod = 4;</code>
+     * @param value The xPeriod to set.
+     * @return This builder for chaining.
+     */
+    public Builder setXPeriod(int value) {
+      
+      xPeriod_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint32 xPeriod = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearXPeriod() {
+      
+      xPeriod_ = 0;
+      onChanged();
+      return this;
+    }
+
     private double value_ ;
     /**
-     * <code>double value = 4;</code>
+     * <code>double value = 5;</code>
      * @return The value.
      */
     public double getValue() {
       return value_;
     }
     /**
-     * <code>double value = 4;</code>
+     * <code>double value = 5;</code>
      * @param value The value to set.
      * @return This builder for chaining.
      */
@@ -686,7 +750,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double value = 4;</code>
+     * <code>double value = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearValue() {
