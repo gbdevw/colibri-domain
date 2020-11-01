@@ -4,17 +4,15 @@ import com.google.protobuf.InvalidProtocolBufferException;
 
 import org.apache.kafka.common.serialization.Deserializer;
 
-import io.quarkus.runtime.annotations.RegisterForReflection;
-import tech.gbdevw.colibri.domain.MFI;
+import tech.gbdevw.colibri.domain.SSO;
 
-@RegisterForReflection
-public class MFIDeserializer implements Deserializer<MFI> {
+public class SSODeserializer implements Deserializer<SSO> {
 
     @Override
-    public MFI deserialize(String topic, byte[] data) {
+    public SSO deserialize(String topic, byte[] data) {
         try 
         {
-            return MFI.parseFrom(data);
+            return SSO.parseFrom(data);
         } 
         catch (InvalidProtocolBufferException e) 
         {
