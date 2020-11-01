@@ -7,7 +7,7 @@
     <properties>
         <protobuf-java.version>3.11.4</protobuf-java.version>
         <protoc-plugin.version>3.11.4</protoc-plugin.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <logback.version>1.2.3</logback.version>
         <quarkus-plugin.version>1.8.0.Final</quarkus-plugin.version>
