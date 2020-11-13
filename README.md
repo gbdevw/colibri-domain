@@ -18,11 +18,10 @@ This repository contains the protobuf schemas and generated java classes that de
 | OHLCV | Open, High, Low, Close, Volume |
 | SMA | Simple Moving Average |
 | EMA | Exponential Moving Average |
-| MACD | Moving Average Convergence Divergence |
-| KLO | Klinger Oscillator |
 | ROC | Rate Of Change + Support/Resistance |
-| RSI | Relative Strength Index |
-| MFI | Money Flow Index |
+| FSO | Fast Stochastic Oscillator |
+| SSO | Slow Stochastic Oscillator |
+| MAR | Moving Average Ribbon |
 | BOL | Bolinger Bands |
 
 #### Utils
